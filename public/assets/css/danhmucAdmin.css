@@ -1,0 +1,31 @@
+body {
+    background-color: #f8f9fa;
+}
+
+a {
+    text-decoration: none;
+}
+
+.order-info {
+    background-color: #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.product-table {
+    margin-top: 20px;
+}
+
+.total {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.container-fluid {
+    margin-top: 50px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
