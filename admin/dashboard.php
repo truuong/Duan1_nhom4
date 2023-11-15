@@ -15,6 +15,12 @@
     <style>
         body {
             background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1;
         }
 
         .container-fluid {
@@ -24,6 +30,7 @@
         .card {
             margin-bottom: 20px;
         }
+
     </style>
 </head>
 <body>
@@ -63,7 +70,8 @@
     </div>
 </nav>
 
-<div class="container-fluid">
+    <main>
+    <div class="container-fluid">
     <h2 class="text-center mb-4">Dashboard - Admin</h2>
 
     <div class="row">
@@ -85,7 +93,14 @@
             </div>
         </div>
     </div>
+    </main>
 
+
+    <footer class="bg-dark text-light text-center py-3">
+    <div class="container">
+      <p>&copy; 2023 Your Website. All rights reserved.</p>
+    </div>
+  </footer>
     <!-- Thêm các thành phần khác tùy thuộc vào nhu cầu của bạn -->
 </div>
 
