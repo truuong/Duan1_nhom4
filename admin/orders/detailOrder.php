@@ -1,6 +1,6 @@
 <?php include '../components/header.php';?>
 
-    <div class="container">
+    
         <main class="main">
             <div class="row">
                 <div class="col-sm-3 col-md-3 col-lg-3">
