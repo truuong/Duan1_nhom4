@@ -1,12 +1,8 @@
-<?php include '../components/header.php';?>
-        <main class="main">
-            <div class="row">
-                <div class="col-sm-3 col-md-3 col-lg-3">
-                    <h3 class="text-center">Trang quản trị</h3>
-                    <?php include '../components/menuAdmin.php';?>
-                </div>
-                <div class="col-sm-9 col-md-9 col-lg-9">
-                    <h3 class="text-center">Quản trị tài khoản</h3>
+<section class="content">
+      <div class="container-fluid">
+        <div class="row">
+                <div class="col-lg-12">
+                <h3 class="text-center">Quản lý tài khoản</h3>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -28,7 +24,7 @@
                                 <td>Admin</td>
                                 <td>Hoạt động</td>
                                 <td>
-                                    <a href="editUser.php" class="btn btn-danger">Cập nhật</a>
+                                    <a href="index.php?action=users&sub_action=edit" class="btn btn-danger">Cập nhật</a>
                                 </td>
                             </tr>
 
@@ -36,5 +32,5 @@
                     </table>
                 </div>
             </div>
-        </main>
-<?php include '../components/footer.php';?>
+      </div>
+</section>

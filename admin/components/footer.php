@@ -1,4 +1,4 @@
-<footer class="main-footer">
+<footer class="main-footer fixed-bottom">
     <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
@@ -25,9 +25,6 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- ChartJS -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/Chart.min.js"></script>
 
 <!-- Sparkline -->
 <script src="https://cdn.jsdelivr.net/npm/jquery-sparkline@2.4.0/dist/jquery.sparkline.min.js"></script>

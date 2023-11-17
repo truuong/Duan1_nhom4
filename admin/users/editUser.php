@@ -1,15 +1,8 @@
-<?php include '../components/header.php';?>
-
-        <main class="main">
-            <div class="row">
-                <div class="col-sm-3 col-md-3 col-lg-3">
-                    <h3 class="text-center">Trang quản trị</h3>
-                    <?php include '../components/menuAdmin.php';?>
-                </div>
-                <div class="col-sm-9 col-md-9 col-lg-9">
-                    <h3 class="text-center">Quản trị tài khoản</h3>
-                    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-                        <h3 style="text-align:center">Cập nhật thông tin</h3>
+<section class="content">
+      <div class="container-fluid">
+        <div class="row">
+                <div class="col-lg-12">
+                <h3 style="text-align:center">Cập nhật thông tin</h3>
                         <form method="post" id="updateuser">
                             <label for="name">Họ tên</label>
                             <input type="text" value="cuong" name="name" class="form-control">
@@ -41,9 +34,7 @@
 
                             <button type="submit" name="updateuser" class="btn btn-danger">Cập nhật</button>
                         </form>
-
-                    </div>
                 </div>
             </div>
-        </main>
-<?php include '../components/footer.php';?>
+      </div>
+</section>

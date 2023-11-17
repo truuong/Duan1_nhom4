@@ -1,13 +1,9 @@
-<?php include '../components/header.php';?>
-            <main class="main">
-                <div class="row">
-                    <div class="col-sm-3 col-md-3 col-lg-3">
-                        <h3 class="text-center">Trang quản trị</h3>
-                        
-                    </div>
-                    <div class="col-sm-9 col-md-9 col-lg-9">
-                        <h3 class="text-center">Quản trị tin tức</h3>
-                        <a href="addPost.php" class="btn btn-primary">Thêm mới</a>
+<section class="content">
+      <div class="container-fluid">
+        <div class="row">
+                <div class="col-lg-12">
+                <h3 class="text-center">Quản lý bài viết</h3>
+                        <a href="index.php?action=posts&sub_action=add" class="btn btn-primary">Thêm mới</a>
                         <table class="table table-hover">
                             <thead>
                                 <tr>
@@ -38,7 +34,7 @@
                                     <td>Show</td>
                                     <td>duongdan</td>
                                     <td>
-                                        <a href="editPost.php"
+                                        <a href="index.php?action=posts&sub_action=edit"
                                             class="btn btn-primary">Cập nhật</a>
                                         <a href=""
                                             class="btn btn-danger">Xóa</a>
@@ -47,7 +43,7 @@
 
                             </tbody>
                         </table>
-                    </div>
                 </div>
-            </main>
-<?php include '../components/footer.php';?>
+            </div>
+      </div>
+</section>

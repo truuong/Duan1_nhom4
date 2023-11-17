@@ -1,12 +1,9 @@
-<?php include '../components/header.php';?>
-        <main class="main">
-            <div class="row">
-                <div class="col-sm-3 col-md-3 col-lg-3">
-                    <h3 class="text-center">Trang quản trị</h3>
-                    
-                </div>
-                <div class="col-sm-9 col-md-9 col-lg-9">
-                    <form action="/xu-ly-them-moi" method="post" enctype="multipart/form-data">
+<section class="content">
+      <div class="container-fluid">
+        <div class="row">
+                <div class="col-lg-12">
+                <h3 class="text-center">Thêm bài viết</h3>
+                <form action="/xu-ly-them-moi" method="POST" enctype="multipart/form-data">
                         <!-- Hình ảnh -->
                         <div class="mb-3">
                             <label for="hinh-anh" class="form-label">Hình ảnh:</label>
@@ -36,5 +33,5 @@
                     </form>
                 </div>
             </div>
-        </main>
-<?php include '../components/footer.php';?>
+      </div>
+</section>
