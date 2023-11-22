@@ -45,25 +45,6 @@ if (isset($_GET['action'])) {
             }
             break;
         
-        case 'posts':
-            if (isset($_GET['sub_action'])) {
-                $subAction = $_GET['sub_action'];
-                switch ($subAction) {
-                    case 'edit':
-                        include "posts/editPost.php";
-                        break;
-                    case 'add':
-                        include "posts/addPost.php";
-                        break;
-                    default:
-                        include "posts/listPosts.php";
-                        break;
-                }
-            } else {
-                include "posts/listPosts.php";
-            }
-            break;
-        
         case 'users':
             if (isset($_GET['sub_action'])) {
                 $subAction = $_GET['sub_action'];

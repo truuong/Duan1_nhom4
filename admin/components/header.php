@@ -126,14 +126,6 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?action=posts" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Quản lý bài viết
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="index.php?action=users" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
