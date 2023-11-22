@@ -31,7 +31,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="public/assets/img/logo/logo.png" alt="">
+                    <img src="public/assets/img/logo/logo.png" alt="logo">
                 </div>
             </div>
         </div>
@@ -45,32 +45,32 @@
                     <div class="menu-wrapper">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                            <a href="index.php"><img src="public/assets/img/logo/logo.png" alt=""></a>
                         </div>
                         <!-- Main-menu -->
                         <div class="main-menu d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li><a href="index.php?page=home">Home</a></li>
-                                    <li><a href="index.php?page=shop">shop</a></li>
-                                    <li><a href="about.html">about</a></li>
+                                    <li><a href="index.php?page=home">Trang chủ</a></li>
+                                    <li><a href="index.php?page=shop">Sản phẩm</a></li>
+                                    <li><a href="about.html">Về chúng tôi</a></li>
                                     <li class="hot"><a href="#">Latest</a>
                                         <ul class="submenu">
-                                            <li><a href="shop.html"> Product list</a></li>
-                                            <li><a href="product_details.html"> Product Details</a></li>
+                                            <!-- <li><a href="shop.html"> Product list</a></li> -->
+                                            <li><a href="product_details.html">chi tiết sản phẩm</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="blog.html">Blog</a>
+                                    <li><a href="blog.html">Tin tức</a>
                                         
                                     </li>
-                                    <li><a href="#">Pages</a>
+                                    <!-- <li><a href="#">Pages</a>
                                         <ul class="submenu">
                                             <li><a href="index.php?page=login">Login</a></li>
                                             <li><a href="index.php?page=cart">Cart</a></li>
                                             
                                         </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    </li> -->
+                                    <li><a href="contact.html">Liên hệ</a></li>
                                 </ul>
                             </nav>
                         </div>

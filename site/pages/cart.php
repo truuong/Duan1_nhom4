@@ -6,7 +6,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap text-center">
-                                <h2>Cart List</h2>
+                                <h2>Giỏ hàng</h2>
                             </div>
                         </div>
                     </div>
@@ -21,10 +21,10 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Product</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Total</th>
+                                    <th scope="col">Sản phẩm</th>
+                                    <th scope="col">Giá</th>
+                                    <th scope="col">Số lượng</th>
+                                    <th scope="col">Tổng tiền</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -80,13 +80,13 @@
                                 </tr>
                                 <tr class="bottom_button">
                                     <td>
-                                        <a class="btn_1" href="#">Update Cart</a>
+                                        <a class="btn_1" href="#">Cập nhật giỏ hàng</a>
                                     </td>
                                     <td></td>
                                     <td></td>
                                     <td>
                                         <div class="cupon_text float-right">
-                                            <a class="btn_1" href="#">Close Coupon</a>
+                                            <a class="btn_1" href="#">Mã giảm giá</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -94,7 +94,7 @@
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <h5>Subtotal</h5>
+                                        <h5>Tổng thanh toán</h5>
                                     </td>
                                     <td>
                                         <h5>$2160.00</h5>
@@ -104,8 +104,8 @@
                             </tbody>
                         </table>
                         <div class="checkout_btn_inner float-right">
-                            <a class="btn_1" href="#">Continue Shopping</a>
-                            <a class="btn_1 checkout_btn_1" href="#">Proceed to checkout</a>
+                            <a class="btn_1" href="#">Tiếp tục mua hàng</a>
+                            <a class="btn_1 checkout_btn_1" href="#">Thanh toán</a>
                         </div>
                     </div>
                 </div>
