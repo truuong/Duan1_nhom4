@@ -7,24 +7,19 @@ if (isset($_GET['action'])) {
   $action = $_GET['action'];
 
   switch ($action) {
-      case 'categories':
-          if (isset($_GET['sub_action'])) {
-              $subAction = $_GET['sub_action'];
-              switch ($subAction) {
-                  case 'edit':
-                      include "categories/editCategory.php";
-                      break;
-                  case 'add':
-                      include "categories/addCategory.php";
-                      break;
-                  default:
-                      include "categories/listCategories.php";
-                      break;
-              }
-          } else {
-              include "categories/listCategories.php";
-          }
-          break;
+    case 'list_cate':
+        include "categories/listCategories.php";
+        break;
+    case 'edit_cate':
+        include "categories/editCategory.php";
+        break;
+    case 'add_cate':
+        include "categories/addCategory.php";
+        break;
+    default:
+        include "categories/listCategories.php";
+        break;
+
 
           case 'products':
             if (isset($_GET['sub_action'])) {
