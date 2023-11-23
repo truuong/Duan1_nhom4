@@ -9,25 +9,17 @@ include "components/header.php";
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
 
-  switch ($action) {
-      case 'categories':
-          if (isset($_GET['sub_action'])) {
-              $subAction = $_GET['sub_action'];
-              switch ($subAction) {
-                  case 'edit':
-                      include "categories/editCategory.php";
-                      break;
-                  case 'add':
-                      include "categories/addCategory.php";
-                      break;
-                  default:
-                      include "categories/listCategories.php";
-                      break;
-              }
-          } else {
-              include "categories/listCategories.php";
-          }
-          break;
+    switch ($action) {
+        case 'categories-list':
+            include "categories/listCategories.php";
+            break;
+
+        case 'categories-edit':
+            include "categories/editCategory.php";
+            break;
+        case 'categories-add':
+            include "categories/addCategory.php";
+            break;
 
         case 'products-edit':
             include "products/editProduct.php";
