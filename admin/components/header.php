@@ -110,7 +110,7 @@
 
           </li>
           <li class="nav-item">
-            <a href="index.php?action=categories" class="nav-link">
+            <a href="index.php?action=categories-list" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Quản lý danh mục
@@ -118,7 +118,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?action=products" class="nav-link">
+            <a href="index.php?action=products-list" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Quản lý sản phẩm
@@ -126,7 +126,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?action=users" class="nav-link">
+            <a href="index.php?action=users-list" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Quản lý người dùng
@@ -134,7 +134,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?action=comments" class="nav-link">
+            <a href="index.php?action=comments-list" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Quản lý bình luận
@@ -142,7 +142,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?action=orders" class="nav-link">
+            <a href="index.php?action=" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Quản lý đơn hàng
