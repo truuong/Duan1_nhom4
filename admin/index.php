@@ -1,6 +1,7 @@
 <?php
 include "../dao/pdo.php";
 include "../dao/sanpham.php";
+include "../dao/User.php";
 
 
 
@@ -37,11 +38,31 @@ if (isset($_GET['action'])) {
             break;
 
         case 'users-list':
+            $listkh = users_select_all();
             include "users/listUsers.php";
             break;
 
         case 'users-edit':
+            if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                $id = $_GET['id'];
+                $dm = users_select_by_id($id);
+            }
             include "users/editUser.php";
+            break;
+
+        case 'users-update':
+            if (isset($_POST['capnhat'])) {
+                $id = $_POST['id'];
+                $name = $_POST['name'];
+                $phone = $_POST['phone'];
+                $password = $_POST['password'];
+                $email = $_POST['email'];
+                $permission = $_POST['permission'];
+                users_update($id, $name, $phone, $password, $email, $permission);
+                $thongbao = "Cập nhật thành công!";
+            }
+            $listkh = users_select_all();
+            include "users/listUsers.php";
             break;
 
         case 'comments-list':

@@ -54,22 +54,8 @@
                                     <li><a href="index.php?page=home">Trang chủ</a></li>
                                     <li><a href="index.php?page=shop">Sản phẩm</a></li>
                                     <li><a href="about.html">Về chúng tôi</a></li>
-                                    <li class="hot"><a href="#">Latest</a>
-                                        <ul class="submenu">
-                                            <!-- <li><a href="shop.html"> Product list</a></li> -->
-                                            <li><a href="product_details.html">chi tiết sản phẩm</a></li>
-                                        </ul>
-                                    </li>
                                     <li><a href="blog.html">Tin tức</a>
-                                        
                                     </li>
-                                    <!-- <li><a href="#">Pages</a>
-                                        <ul class="submenu">
-                                            <li><a href="index.php?page=login">Login</a></li>
-                                            <li><a href="index.php?page=cart">Cart</a></li>
-                                            
-                                        </ul>
-                                    </li> -->
                                     <li><a href="contact.html">Liên hệ</a></li>
                                 </ul>
                             </nav>
