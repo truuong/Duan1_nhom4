@@ -1,107 +1,59 @@
 <?php
+include "../dao/pdo.php";
+include "../dao/sanpham.php";
+
 
 include "components/header.php";
-
-
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
 
     switch ($action) {
-        case 'categories':
-            if (isset($_GET['sub_action'])) {
-                $subAction = $_GET['sub_action'];
-                switch ($subAction) {
-                    case 'edit':
-                        include "categories/editCategory.php";
-                        break;
-                    case 'add':
-                        include "categories/addCategory.php";
-                        break;
-                    default:
-                        include "categories/listCategories.php";
-                        break;
-                }
-            } else {
-                include "categories/listCategories.php";
-            }
+        case 'categories-list':
+            include "categories/listCategories.php";
             break;
 
-        case 'products':
-            if (isset($_GET['sub_action'])) {
-                $subAction = $_GET['sub_action'];
-                switch ($subAction) {
-                    case 'edit':
-                        include "products/editProduct.php";
-                        break;
-                    case 'add':
-                        include "products/addProduct.php";
-                        break;
-                    default:
-                        include "products/listProducts.php";
-                        break;
-                }
-            } else {
-                include "products/listProducts.php";
-            }
+        case 'categories-edit':
+            include "categories/editCategory.php";
+            break;
+        case 'categories-add':
+            include "categories/addCategory.php";
             break;
 
-        case 'users':
-            if (isset($_GET['sub_action'])) {
-                $subAction = $_GET['sub_action'];
-                switch ($subAction) {
-                    case 'edit':
-                        include "users/editUser.php";
-                        break;
-                    default:
-                        include "users/listUsers.php";
-                        break;
-                }
-            } else {
-                include "users/listUsers.php";
-            }
+        case 'products-edit':
+            include "products/editProduct.php";
             break;
 
-        case 'comments':
-            if (isset($_GET['sub_action'])) {
-                $subAction = $_GET['sub_action'];
-                switch ($subAction) {
-                    case 'edit':
-                        include "comments/detailComment.php";
-                        break;
-                    default:
-                        include "comments/comments.php";
-                        break;
-                }
-            } else {
-                include "comments/comments.php";
-            }
+        case 'products-add':
+            include "products/addProduct.php";
             break;
 
-        case 'orders':
-            if (isset($_GET['sub_action'])) {
-                $subAction = $_GET['sub_action'];
-                switch ($subAction) {
-                    case 'edit':
-                        include "orders/detailOrder.php";
-                        break;
-                    default:
-                        include "orders/listOrders.php";
-                        break;
-                }
-            } else {
-                include "orders/listOrders.php";
-            }
+        case 'products-list':
+            $listsp = products_select_all();
+            include "products/listProducts.php";
+
+
             break;
 
+        case 'users-list':
+            include "users/listUsers.php";
+            break;
 
+        case 'users-edit':
+            include "users/editUser.php";
+            break;
+
+        case 'comments-list':
+            include "comments/listComments.php";
+
+            break;
+        case 'comments-edit':
+            include "orders/detailOrder.php";
+            break;
         default:
             include "components/home.php";
             break;
     }
 } else {
     include "components/home.php";
-}
-
-
+};
 include "components/footer.php";
-?>
