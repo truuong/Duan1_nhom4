@@ -1,72 +1,76 @@
+<?php if (is_array($dm)){extract($dm);}?>
+
+
+
+
+
 <section class="content">
       <div class="container-fluid">
         <div class="row">
                 <div class="col-lg-12">
                 <h3 class="text-center">Sửa sản phẩm</h3>
-                    <form action="/xu-ly-sua-san-pham" method="post" enctype="multipart/form-data">
+                <?php
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    $id = $_GET['id'];
+                    $dm = products_select_by_id($id);
+                }
+                ?>
+                    <form action="index.php?action=products-update" method="POST" enctype="multipart/form-data">
                         <!-- Tên sản phẩm -->
                         <div class="mb-3">
-                            <label for="ten-san-pham" class="form-label">Tên sản phẩm:</label>
-                            <input type="text" class="form-control" value="Đồng hồ Gucci" id="ten-san-pham"
-                                name="tenSanPham" required>
-                        </div>
+                        <label for="name" class="form-label">Tên sản phẩm:</label>
+                        <input type="text" class="form-control" id="name" name="name" value="<?php echo $dm['name']; ?>"required>
+                    </div>
 
-                        <!-- Giá sản phẩm -->
-                        <div class="row mb-3">
-                            <label for="gia-san-pham" class="form-label">Giá sản phẩm:</label>
-                            <div class="input-group">
-                                <input type="number" class="form-control" value="10000000" id="gia-san-pham"
-                                    name="giaSanPham" required>
-                                <span class="input-group-text">VNĐ</span>
-                            </div>
-                        </div>
+                    <!-- Giá sản phẩm -->
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Giá sản phẩm:</label>
+                        <input type="number" class="form-control" id="price" name="price" value="<?php echo $dm['price']; ?>"required>
+                    </div>
 
-                        <!-- Ảnh sản phẩm -->
-                        <div class="mb-3">
-                            <label for="anh-san-pham" class="form-label">Ảnh sản phẩm:</label>
-                            <input type="file" class="form-control" id="anh-san-pham" name="anhSanPham"
-                                accept="image/*">
-                        </div>
+                    <!-- Ảnh sản phẩm -->
+                    <div class="mb-3">
+                        <label for="exampleInputFile" class="form-label">Ảnh sản phẩm:</label>
+                        <input type="file" class="form-control" id="exampleInputFile" name="image" accept="image/*">
+                        <?=$image?>
+                    </div>
 
-                        <!-- Giảm giá % -->
-                        <div class="mb-3">
-                            <label for="giam-gia" class="form-label">Giảm giá %:</label>
-                            <input type="number" class="form-control" value="30" id="giam-gia" name="giamGia">
-                        </div>
+                    <!-- Giảm giá % -->
+                    <div class="mb-3">
+                        <label for="price_sale" class="form-label">Giảm giá %:</label>
+                        <input type="number" class="form-control" value="<?php echo $dm['price_sale']; ?>" id="price_sale" name="price_sale">
+                    </div>
+                    
+                    
+                    <!-- Danh mục -->
+                    <div class="mb-3">
+                        <label for="cate_id" class="form-label">Danh mục:</label>
+                        <select class="form-control" id="cate_id" required name="cate_id" >
+                            <?php
+                            foreach ($listcategories as $cate) {
+                                extract($cate);
+                                 $selected = ($dm[$id] == $item->cate_id) ?  'selected' : '';
+                                    echo '<option value="' .$dm[$id]. '" ' . $selected. '>' .$dm[$name]. '</option>';
+                            }
+                            ?>
 
-                        <!-- Số lượng -->
-                        <div class="mb-3">
-                            <label for="so-luong" class="form-label">Số lượng:</label>
-                            <input type="number" class="form-control" value="110" id="so-luong" name="soLuong" required>
-                        </div>
 
-                        <!-- Danh mục -->
-                        <div class="mb-3">
-                            <label for="danh-muc" class="form-label">Danh mục:</label>
-                            <select class="form-control" id="danh-muc" value="Đồng hồ" name="danhMuc" required>
-                                <option value="Đồng hồ">Đồng hồ</option>
-                                <option value="danh-muc-2">Danh mục 2</option>
-                                <option value="danh-muc-3">Danh mục 3</option>
-                                <!-- Thêm các tùy chọn danh mục khác nếu cần -->
-                            </select>
-                        </div>
+                            
+                        </select>
+                    </div>
+
+
+
+                    <div class="mb-3">
+                    <label for="intro" class="col-sm-3 text-end control-label col-form-label">Mô tả</label>         
+                    <input type="text"  class="form-control" id="intro" name="intro" value="<?php echo $dm['intro']; ?>" placeholder="nhập mô tả ...">        
+                    </div>
 
                         <!-- Giới thiệu sản phẩm -->
-                        <div class="mb-3">
-                            <label for="gioi-thieu-san-pham" class="form-label">Giới thiệu sản phẩm:</label>
-                            <textarea class="form-control" id="gioi-thieu-san-pham" name="gioiThieuSanPham" rows="4"
-                                required></textarea>
-                        </div>
-
-                        <!-- Chi tiết sản phẩm -->
-                        <div class="mb-3">
-                            <label for="chi-tiet-san-pham" class="form-label">Chi tiết sản phẩm:</label>
-                            <textarea class="form-control" id="chi-tiet-san-pham" name="chiTietSanPham" rows="8"
-                                required></textarea>
-                        </div>
-
+                        
                         <!-- Nút submit -->
-                        <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
+                        <input type="hidden" name="id" id="id" value="<?php  echo $dm['id'] ;?>">
+                        <button type="submit" id="update" name="update" class="btn btn-primary">uppdate</button>
                     </form>
                 </div>
             </div>

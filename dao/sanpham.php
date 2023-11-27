@@ -1,24 +1,33 @@
 <?php
 require_once 'pdo.php';
 	
-function products_insert($name, $price, $price_sale, $image, $cate_id, $created_at, $intro){
-    $sql = "INSERT INTO products(name, price, price_sale,image, cate_id, dac_biet, so_luot_xem, created_at, intro) VALUES (?,?,?,?,?,?,?)";
-    pdo_execute($sql, $name, $price, $price_sale, $image, $cate_id, $created_at, $intro);
+function products_insert($name, $price, $price_sale, $image, $cate_id, $intro){
+    $sql = "INSERT INTO products(name,price,price_sale,image,intro, cate_id) VALUES ('$name', '$price', '$price_sale', '$image', '$intro', '$cate_id')";
+    pdo_execute($sql);
 }
 
-function products_update($id, $name, $price, $price_sale, $image, $cate_id, $dac_biet, $created_at, $intro){
-    
-    if($image!=""){
-    $sql = "UPDATE products SET name='$name', price='$price', price_sale='$price_sale', image='$image', created_at='$created_at', intro='$intro', dac_biet=$dac_biet, cate_id='$cate_id' WHERE id='$id'";
-    }else{
-    $sql = "UPDATE products SET name='$name', price='$price', price_sale='$price_sale',image=image, created_at='$created_at', intro='$intro', dac_biet=$dac_biet, cate_id='$cate_id' WHERE id='$id'";
+
+
+function products_update($id, $name, $price, $price_sale, $image,  $intro){
+        $sql = "UPDATE products SET name = ?, price = ?, price_sale = ?, image = ?,   intro = ? WHERE id = ?";
+        
+        pdo_execute($sql, $name, $price, $price_sale, $image, $intro, $id);
     }
-    pdo_execute($sql);
-}
+    function products_select_by_id($id) {
+        $sql = "SELECT * FROM products WHERE id=?";
+        $dm = pdo_query_one($sql, $id);
+        return $dm;
+    }
+
 // ------------------------delete sản phẩm----------------------
 function products_delete($id){
-    $sql = "DELETE FROM products WHERE  id=$id";
+    $sql = "DELETE FROM products WHERE id= $id";
     pdo_execute($sql);
+}
+function get_image($id){
+    $sql = "SELECT image FROM products WHERE id=?";
+    $getimage = pdo_query_one($sql, $id);
+    return $getimage['image'];
 }
 
 //-----------------------list sản phẩm------------------------------
@@ -27,12 +36,6 @@ function products_select_all(){
     $listsp = pdo_query($sql);
     return $listsp;
     
-}
-
-function products_select_by_id($id){
-    $sql = "SELECT * FROM products WHERE id='$id'";
-    $dm = pdo_query_one($sql);
-    return $dm;
 }
 
 function products_exist($id){
