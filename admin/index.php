@@ -50,9 +50,17 @@ if (isset($_GET['action'])) {
             include "categories/listCategories.php";
             break;
 
+
         case 'products-edit':
+            if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                $id = $_GET['id'];
+                $dm = products_select_by_id($id);
+            }
             include "products/editProduct.php";
             break;
+        case 'products-update':
+            $listsp = products_select_all();
+            include "products/listProducts.php";
 
         case 'products-add':
             include "products/addProduct.php";

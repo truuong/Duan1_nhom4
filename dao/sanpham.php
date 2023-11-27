@@ -7,13 +7,9 @@ function products_insert($name, $price, $price_sale, $image, $cate_id, $created_
 }
 
 function products_update($id, $name, $price, $price_sale, $image, $cate_id, $dac_biet, $created_at, $intro){
+    $sql = "UPDATE products SET name = ?, price = ?, price_sale = ?, image = ?, cate_id = ?, dac_biet = ?, created_at = ?, intro = ? WHERE id = ?";
     
-    if($image!=""){
-    $sql = "UPDATE products SET name='$name', price='$price', price_sale='$price_sale', image='$image', created_at='$created_at', intro='$intro', dac_biet=$dac_biet, cate_id='$cate_id' WHERE id='$id'";
-    }else{
-    $sql = "UPDATE products SET name='$name', price='$price', price_sale='$price_sale',image=image, created_at='$created_at', intro='$intro', dac_biet=$dac_biet, cate_id='$cate_id' WHERE id='$id'";
-    }
-    pdo_execute($sql);
+    pdo_execute($sql, $name, $price, $price_sale, $image, $cate_id, $dac_biet, $created_at, $intro, $id);
 }
 // ------------------------delete sản phẩm----------------------
 function products_delete($id){
@@ -29,9 +25,10 @@ function products_select_all(){
     
 }
 
-function products_select_by_id($id){
-    $sql = "SELECT * FROM products WHERE id='$id'";
-    $dm = pdo_query_one($sql);
+
+function products_select_by_id($id) {
+    $sql = "SELECT * FROM products WHERE id=?";
+    $dm = pdo_query_one($sql, $id);
     return $dm;
 }
 

@@ -11,7 +11,7 @@
                 <form method="post" action="index.php?action=categories-update">
                     <input type="hidden" name="id" value="<?php echo $dm['id']; ?>">
                     <label for="name" class="form-label">Danh mục:</label>
-                    <input type="text" id="name" name="name" class="form-control mb-3" placeholder="Danh mục" value="<?php echo $dm['name']; ?>">
+                    <input type="text" id="name" name="name" class="form-control mb-3" value="<?php echo $dm['name']; ?>">
                     <button type="submit" name="capnhat" class="btn btn-primary">Sửa</button>
                 </form>
                 <?php

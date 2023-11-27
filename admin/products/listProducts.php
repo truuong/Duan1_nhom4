@@ -12,7 +12,7 @@
                             <th>Hình ảnh</th>
                             <th>Giảm giá</th>
                             <th>Giá</th>
-                            <th>Danh mục</th>
+                            <!-- <th>Danh mục</th> -->
                             <th>Quản lý</th>
                         </tr>
                     </thead>
@@ -21,7 +21,7 @@
 
                         foreach ($listsp as $sp) {
                             extract($sp);
-                            $suasp = "index.php?sub_action=edit&id" . $id;
+                            $suasp = "index.php?action=products-edit&id=" . $id;
 
 
                             echo '<tr>
@@ -32,7 +32,7 @@
                                     </td>
                                     <td>' . $price_sale . '%</td>
                                     <td>' . $price . 'VNĐ</td>
-                                    <td>' . $cate_id . '</td>
+                                    
 
                                     <td>
                                     <a href="' . $suasp . '" class="btn btn-primary">Sửa</a>
