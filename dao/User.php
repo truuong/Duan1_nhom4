@@ -1,9 +1,9 @@
 <?php
 require_once 'pdo.php';
 
-function users_insert($id, $name, $phone, $password, $email, $username, $permission)
+function users_insert( $name, $phone, $password, $email, $username, $permission)
 {
-    $sql = "INSERT INTO users( id, name, phone, password, email, username, permission) VALUES ('$id ', '$name', '$phone', '$password', '$email', '$username', $permission)";
+    $sql = "INSERT INTO users( name, phone, password, email, username, permission) VALUES ( '$name', '$phone', '$password', '$email', '$username', $permission)";
     pdo_execute($sql);
 }
 
@@ -11,7 +11,7 @@ function users_update($id, $name, $phone, $password, $email, $permission)
 {
 
 
-    $sql = "UPDATE users SET name='$name', phone='$phone', password='$password' , email='$email', permission=$permission WHERE id ='$id '";
+    $sql = "UPDATE users SET name='$name', phone='$phone', password='$password' , email='$email', permission=$permission WHERE id ='$id'";
 
     pdo_execute($sql);
 }

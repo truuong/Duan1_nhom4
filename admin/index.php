@@ -42,6 +42,22 @@ if (isset($_GET['action'])) {
             include "users/listUsers.php";
             break;
 
+        case 'user-add':
+            if (isset($_POST['add'])) {
+                $name = $_POST['name'];
+                $phone = $_POST['phone'];
+                $password = $_POST['password'];
+                $email = $_POST['email'];
+                $username = $_POST['username'];
+                $permission = $_POST['permission'];
+
+                users_insert( $name, $phone, $password, $email, $username, $permission);
+                $thongbao = "Thêm thành công!";
+            }
+            $listkh = users_select_all();
+            include "users/addUser.php";
+            break;
+
         case 'users-edit':
             if (isset($_GET['id']) && ($_GET['id']) > 0) {
                 $id = $_GET['id'];
@@ -60,6 +76,16 @@ if (isset($_GET['action'])) {
                 $permission = $_POST['permission'];
                 users_update($id, $name, $phone, $password, $email, $permission);
                 $thongbao = "Cập nhật thành công!";
+            }
+            $listkh = users_select_all();
+            include "users/listUsers.php";
+            break;
+
+         case 'users-delete':
+            if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                $id = $_GET['id'];
+                users_delete($id);
+                $thongbao = "Xóa thành công!";
             }
             $listkh = users_select_all();
             include "users/listUsers.php";
