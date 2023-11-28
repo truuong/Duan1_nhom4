@@ -12,7 +12,7 @@
                     <input type="hidden" name="id" value="<?php echo $dm['id']; ?>">
                     <label for="name" class="form-label">Danh mục:</label>
                     <input type="text" id="name" name="name" class="form-control mb-3" value="<?php echo $dm['name']; ?>">
-                    <button type="submit" name="capnhat" class="btn btn-primary">Sửa</button>
+                    <button type="submit" name="capnhat" class="btn btn-primary" onclick="confirm('Uppdate Thành Công!!')">Uppdate</button>
                 </form>
                 <?php
                 } else {

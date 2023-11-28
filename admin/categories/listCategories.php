@@ -28,7 +28,8 @@
                                 <td>'.$updated_at.'</td>
                                 <td>
                                     <a href="'.$sua_cate.'" class="btn btn-primary">Sửa</a>
-                                    <a href="'.$xoa_cate.'" class="btn btn-danger">Xóa</a>
+                                    <a onclick="return confirm('."'".'  Bạn có muốn xoá Danh Mục này không?'."'".');" href="'.$xoa_cate.'" class="btn btn-danger">Xóa</a>
+
 
 
 

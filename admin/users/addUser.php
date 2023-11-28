@@ -32,7 +32,7 @@
                             <option value="1">Admin</option>
                         </select>
                     </div>
-                    <button type="submit" id='add' name="add" class="btn btn-primary mt-3">Thêm mới</button>
+                    <button type="submit" id='add' name="add" class="btn btn-primary mt-3"onclick="confirm('Thêm Thành công!!')">Thêm mới</button>
                 </form>
                 <?php
                 if(isset($thongbao) && ($thongbao != "")) {

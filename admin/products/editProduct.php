@@ -71,7 +71,7 @@
                         
                         <!-- Nút submit -->
                         <input type="hidden" name="id" id="id" value="<?php  echo $dm['id'] ;?>">
-                        <button type="submit" id="update" name="update" class="btn btn-primary">Uppdate</button>
+                        <button type="submit" id="update" name="update" class="btn btn-primary"onclick="confirm('Uppdate Thành Công!!')">Uppdate</button>
                     </form>
                 </div>
             </div>

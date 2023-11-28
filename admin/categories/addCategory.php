@@ -6,7 +6,7 @@
                 <form method="post" action="index.php?action=categories-add">
                     <label for="name" class="form-label">Danh mục:</label>
                     <input type="text"  class="form-control" id="name" name="name" required placeholder="Nhập tên danh mục sản phẩm...">
-                    <button type="submit" id='add' name="add" class="btn btn-primary mt-3">Thêm mới</button>
+                    <button type="submit" id='add' name="add" class="btn btn-primary mt-3"onclick="confirm('Thêm Thành công!!')">Thêm mới</button>
                 </form>
             </div>
         </div>

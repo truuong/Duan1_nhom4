@@ -41,7 +41,7 @@ if (isset($thongbao) && ($thongbao != "")) {
 
                                     <td>
                                     <a href="' .$sua. '" class="btn btn-primary">Sửa</a>
-                                    <a href="' .$xoa. '"class="btn btn-danger "> Xóa </a>
+                                    <a onclick="return confirm('."'".'  Bạn có muốn xoá san pham này không?'."'".');" href="'.$xoa.'" class="btn btn-danger">Xóa</a>
                                     </td>
                                 </tr>';
                         }

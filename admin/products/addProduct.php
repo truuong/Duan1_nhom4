@@ -1,8 +1,4 @@
-<?php
-if (isset($thongbao) && ($thongbao != "")) {
-    echo "<p class='text-success'>$thongbao</p>";
-}
-?>
+
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -55,7 +51,7 @@ if (isset($thongbao) && ($thongbao != "")) {
                     </div>
 
                     <!-- Nút submit -->
-                    <button type="submit" id="add" name="add" class="btn btn-primary" value="Show Alert">Thêm sản phẩm</button>
+                    <button type="submit" id="add" name="add" class="btn btn-primary" value="Show Alert"onclick="confirm('Thêm Thành công!!')">Thêm sản phẩm</button>
                 </form>
             </div>
         </div>

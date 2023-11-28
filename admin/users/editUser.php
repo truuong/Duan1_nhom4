@@ -35,7 +35,7 @@
                             </select>
                         </div>
 
-                        <button type="submit" name="capnhat" class="btn btn-danger">Cập nhật</button>
+                        <button type="submit" name="capnhat" class="btn btn-danger"onclick="confirm('Uppdate Thành Công!!')">Uppdate</button>
                     </form>
                     <?php
                 } else {
