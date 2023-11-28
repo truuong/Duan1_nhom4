@@ -16,9 +16,9 @@ function categories_insert($name){
  * @param String $name là tên loại mới
  * @throws PDOException lỗi cập nhật
  */
-function categories_update($id , $name){
-    $sql = "UPDATE product_categories SET name='$name' WHERE id ='$id '";
-    pdo_execute($sql);
+function categories_update($id, $name) {
+    $sql = "UPDATE product_categories SET name=? WHERE id=?";
+    pdo_execute($sql, $name, $id);
 }
 
 /**
@@ -26,7 +26,7 @@ function categories_update($id , $name){
  * @param mix $id  là mã loại hoặc mảng mã loại
  * @throws PDOException lỗi xóa
  */
-function categories_delete($id ){
+function categories_delete($id){
     $sql = "DELETE FROM product_categories WHERE id ='$id '";
     pdo_execute($sql);
     
@@ -37,7 +37,7 @@ function categories_delete($id ){
  * @throws PDOException lỗi truy vấn
  */
 function categories_select_all(){
-    $sql = "SELECT * FROM product_categories ORDER BY id  ASC";
+    $sql = "SELECT * FROM product_categories ORDER BY id  DESC";
     $listcategories = pdo_query($sql);
     return $listcategories;
 }
@@ -47,9 +47,9 @@ function categories_select_all(){
  * @return array mảng chứa thông tin của một loại
  * @throws PDOException lỗi truy vấn
  */
-function categories_select_by_id($id ){
-    $sql = "SELECT * FROM product_categories WHERE id =$id ";
-    $dm = pdo_query_one($sql);
+function categories_select_by_id($id) {
+    $sql = "SELECT * FROM product_categories WHERE id=?";
+    $dm = pdo_query_one($sql, $id);
     return $dm;
 }
 

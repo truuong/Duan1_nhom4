@@ -16,7 +16,7 @@
                         </thead>
                         <tbody>
                     <?php
-                        foreach ($listloai as $cate) {
+                        foreach ($listcategories as $cate) {
                             extract($cate);
                             $sua_cate = "index.php?action=categories-edit&id=".$id;
                             $xoa_cate = "index.php?action=categories-delete&id=".$id;

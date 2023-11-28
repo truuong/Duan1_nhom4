@@ -3,7 +3,7 @@ include "../dao/global.php";
 include "../dao/pdo.php";
 include "../dao/sanpham.php";
 include "../dao/categories.php";
-
+include "../dao/User.php";
 
 
 
@@ -13,14 +13,42 @@ if (isset($_GET['action'])) {
 
     switch ($action) {
         case 'categories-list':
+            $listcategories = categories_select_all();
             include "categories/listCategories.php";
             break;
 
         case 'categories-edit':
+            if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                $id = $_GET['id'];
+                $dm = categories_select_by_id($id);
+            }
             include "categories/editCategory.php";
+            break;
+        case 'categories-update':
+            if (isset($_POST['capnhat'])) {
+                $name = $_POST['name'];
+                $id = $_POST['id'];
+                categories_update($id,$name);
+            }
+            $listcategories = categories_select_all();
+            include "categories/listCategories.php";
             break;
         case 'categories-add':
             include "categories/addCategory.php";
+            if (isset($_POST['add'])) {
+                $name = $_POST['name'];
+                categories_insert($name);
+            }
+            
+            break;
+        case 'categories-delete':
+            if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                $id = $_GET['id'];
+                categories_delete($id);
+                $thongbao = "Xóa thành công !";
+            }
+            $listcategories = categories_select_all();
+            include "categories/listCategories.php";
             break;
             // ---------------------------------------------
             case 'products-edit':
@@ -91,13 +119,59 @@ if (isset($_GET['action'])) {
             break;
 // -------------------------------------------------
 
-        case 'users-list':
-            include "users/listUsers.php";
-            break;
+case 'users-list':
+    $listkh = users_select_all();
+    include "users/listUsers.php";
+    break;
 
-        case 'users-edit':
-            include "users/editUser.php";
-            break;
+case 'user-add':
+    if (isset($_POST['add'])) {
+        $name = $_POST['name'];
+        $phone = $_POST['phone'];
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        $username = $_POST['username'];
+        $permission = $_POST['permission'];
+
+        users_insert( $name, $phone, $password, $email, $username, $permission);
+        $thongbao = "Thêm thành công!";
+    }
+    $listkh = users_select_all();
+    include "users/addUser.php";
+    break;
+
+case 'users-edit':
+    if (isset($_GET['id']) && ($_GET['id']) > 0) {
+        $id = $_GET['id'];
+        $dm = users_select_by_id($id);
+    }
+    include "users/editUser.php";
+    break;
+
+case 'users-update':
+    if (isset($_POST['capnhat'])) {
+        $id = $_POST['id'];
+        $name = $_POST['name'];
+        $phone = $_POST['phone'];
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        $permission = $_POST['permission'];
+        users_update($id, $name, $phone, $password, $email, $permission);
+        $thongbao = "Cập nhật thành công!";
+    }
+    $listkh = users_select_all();
+    include "users/listUsers.php";
+    break;
+
+ case 'users-delete':
+    if (isset($_GET['id']) && ($_GET['id']) > 0) {
+        $id = $_GET['id'];
+        users_delete($id);
+        $thongbao = "Xóa thành công!";
+    }
+    $listkh = users_select_all();
+    include "users/listUsers.php";
+    break;
 
 // -----------------------------------------------------
 
