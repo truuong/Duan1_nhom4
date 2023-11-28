@@ -30,18 +30,18 @@ if (isset($thongbao) && ($thongbao != "")) {
                             $xoa = "index.php?action=products-xoa&id=" . $id;
 
                             echo '<tr>
-                                    <td>' . $id . '</td>
-                                    <td>' . $name . '</td>
-                                    <td><img src="' . IMG_PATH_ADMIN . $image . '"
-                                        width="70px"  height="70px" alt="' . $name . '">
+                                    <td>' .$id. '</td>
+                                    <td>' .$name. '</td>
+                                    <td><img src="'.IMG_PATH_ADMIN.$image. '"
+                                        width="70px"  height="70px" alt="' .$name. '">
                                     </td>
-                                    <td>' . $price_sale . '%</td>
-                                    <td>' . $price . ' VNĐ</td>
-                                    <td>' . $cate_id . '</td>
+                                    <td>' .$price_sale. '%</td>
+                                    <td>' .$price. ' VNĐ</td>
+                                    <td>' .$cate_id. '</td>
 
                                     <td>
-                                    <a href="' . $sua . '" class="btn btn-primary">Sửa</a>
-                                    <a href="' . $xoa . '"class="btn btn-danger "> Xóa </a>
+                                    <a href="' .$sua. '" class="btn btn-primary">Sửa</a>
+                                    <a href="' .$xoa. '"class="btn btn-danger "> Xóa </a>
                                     </td>
                                 </tr>';
                         }

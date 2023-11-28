@@ -6,8 +6,8 @@ require_once 'pdo.php';
  * @param String $name là tên loại
  * @throws PDOException lỗi thêm mới
  */
-function loai_insert($name){
-    $sql = "INSERT INTO loai(name) VALUES('$name')";
+function categories_insert($name){
+    $sql = "INSERT INTO product_categories(name) VALUES('$name')";
     pdo_execute($sql);
 }
 /**
@@ -16,8 +16,8 @@ function loai_insert($name){
  * @param String $name là tên loại mới
  * @throws PDOException lỗi cập nhật
  */
-function loai_update($id , $name){
-    $sql = "UPDATE loai SET name='$name' WHERE id ='$id '";
+function categories_update($id , $name){
+    $sql = "UPDATE product_categories SET name='$name' WHERE id ='$id '";
     pdo_execute($sql);
 }
 
@@ -26,8 +26,8 @@ function loai_update($id , $name){
  * @param mix $id  là mã loại hoặc mảng mã loại
  * @throws PDOException lỗi xóa
  */
-function loai_delete($id ){
-    $sql = "DELETE FROM loai WHERE id ='$id '";
+function categories_delete($id ){
+    $sql = "DELETE FROM product_categories WHERE id ='$id '";
     pdo_execute($sql);
     
 }
@@ -36,10 +36,10 @@ function loai_delete($id ){
  * @return array mảng loại truy vấn được
  * @throws PDOException lỗi truy vấn
  */
-function loai_select_all(){
-    $sql = "SELECT * FROM loai ORDER BY id  ASC";
-    $listloai = pdo_query($sql);
-    return $listloai;
+function categories_select_all(){
+    $sql = "SELECT * FROM product_categories ORDER BY id  ASC";
+    $listcategories = pdo_query($sql);
+    return $listcategories;
 }
 /**
  * Truy vấn một loại theo mã
@@ -47,8 +47,8 @@ function loai_select_all(){
  * @return array mảng chứa thông tin của một loại
  * @throws PDOException lỗi truy vấn
  */
-function loai_select_by_id($id ){
-    $sql = "SELECT * FROM loai WHERE id =$id ";
+function categories_select_by_id($id ){
+    $sql = "SELECT * FROM product_categories WHERE id =$id ";
     $dm = pdo_query_one($sql);
     return $dm;
 }
@@ -59,8 +59,8 @@ function loai_select_by_id($id ){
  * @return boolean có tồn tại hay không
  * @throws PDOException lỗi truy vấn
  */
-function loai_exist($id ){
-    $sql = "SELECT count(*) FROM loai WHERE id =$id ";
+function categories_exist($id ){
+    $sql = "SELECT count(*) FROM product_categories WHERE id =$id ";
     return pdo_query_value($sql, $id ) > 0;
 }
 ?>

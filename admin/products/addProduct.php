@@ -40,7 +40,7 @@ if (isset($thongbao) && ($thongbao != "")) {
                             <?php
                             foreach ($listcategories as $cate) {
                                 extract($cate);
-                                echo '<option value="' .$id. '">' .$name. '</option>';
+                                echo '<option value="'.$id.'">'.$name.'</option>';
                             }
                             ?>
 

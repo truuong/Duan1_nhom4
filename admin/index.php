@@ -28,7 +28,7 @@ if (isset($_GET['action'])) {
                     $id = $_GET['id'];
                     $dm = products_select_by_id($id);
                 }
-                $listloai = categories_select_all();
+                $listcategories = categories_select_all();
                 
         include "products/editProduct.php";
         break;
@@ -40,10 +40,10 @@ if (isset($_GET['action'])) {
             $price = $_POST['price'];
             $image = $_FILES['image']['name'];
             $price_sale = $_POST['price_sale'];
-            // $cate_id = $_POST['cate_id'];
+            $cate_id = $_POST['cate_id'];
             $intro = $_POST['intro'];
            
-            products_update($id, $name, $price, $price_sale, $image, $intro);
+            products_update($id, $name, $price, $price_sale, $image,$cate_id ,$intro);
             $target_file =IMG_PATH_ADMIN.$image;
             move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
             $thongbao = "uppdate thành công!"; 

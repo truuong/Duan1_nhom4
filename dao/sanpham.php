@@ -3,15 +3,16 @@ require_once 'pdo.php';
 	
 function products_insert($name, $price, $price_sale, $image, $cate_id, $intro){
     $sql = "INSERT INTO products(name,price,price_sale,image,intro, cate_id) VALUES ('$name', '$price', '$price_sale', '$image', '$intro', '$cate_id')";
+    
     pdo_execute($sql);
 }
 
 
 
-function products_update($id, $name, $price, $price_sale, $image,  $intro){
-        $sql = "UPDATE products SET name = ?, price = ?, price_sale = ?, image = ?,   intro = ? WHERE id = ?";
+function products_update($id, $name, $price, $price_sale, $image,$cate_id ,$intro){
+        $sql = "UPDATE products SET name = ?, price = ?, price_sale = ?, image = ?,cate_id = ?, intro = ? WHERE id = ?";
         
-        pdo_execute($sql, $name, $price, $price_sale, $image, $intro, $id);
+        pdo_execute($sql, $name, $price, $price_sale, $image,$cate_id, $intro, $id);
     }
     function products_select_by_id($id) {
         $sql = "SELECT * FROM products WHERE id=?";

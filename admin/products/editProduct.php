@@ -49,8 +49,9 @@
                             <?php
                             foreach ($listcategories as $cate) {
                                 extract($cate);
-                                 $selected = ($dm[$id] == $item->cate_id) ?  'selected' : '';
-                                    echo '<option value="' .$dm[$id]. '" ' . $selected. '>' .$dm[$name]. '</option>';
+                                 ($id == $dm['cate_id']) ? $a = 'selected' : $a = '';
+                                    echo '<option '.$a.' value="' .$id. '" >' .$name. '</option>';
+                                    
                             }
                             ?>
 
@@ -70,7 +71,7 @@
                         
                         <!-- Nút submit -->
                         <input type="hidden" name="id" id="id" value="<?php  echo $dm['id'] ;?>">
-                        <button type="submit" id="update" name="update" class="btn btn-primary">uppdate</button>
+                        <button type="submit" id="update" name="update" class="btn btn-primary">Uppdate</button>
                     </form>
                 </div>
             </div>
