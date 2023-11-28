@@ -3,10 +3,10 @@
         <div class="row">
             <div class="col-lg-12 ">
                 <h3 class="text-center">Thêm danh mục</h3>
-                <form method="" action="">
-                    <label for="" class="form-label">Danh mục:</label>
-                    <input type="text" name="category" class="form-control mb-3" placeholder="Danh mục">
-                    <button type="submit" name="addCate" class="btn btn-primary">Thêm mới</button>
+                <form method="post" action="index.php?action=categories-add">
+                    <label for="name" class="form-label">Danh mục:</label>
+                    <input type="text"  class="form-control" id="name" name="name" required placeholder="Nhập tên danh mục sản phẩm...">
+                    <button type="submit" id='add' name="add" class="btn btn-primary mt-3"onclick="confirm('Thêm Thành công!!')">Thêm mới</button>
                 </form>
             </div>
         </div>

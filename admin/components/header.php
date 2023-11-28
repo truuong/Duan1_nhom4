@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.1.2/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/icheck-bootstrap@3.0.1/dist/icheck-bootstrap.min.css">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- JQVMap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css">
 
@@ -110,7 +110,7 @@
 
           </li>
           <li class="nav-item">
-            <a href="index.php?action=categories" class="nav-link">
+            <a href="index.php?action=categories-list" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Quản lý danh mục
@@ -118,7 +118,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?action=products" class="nav-link">
+            <a href="index.php?action=products-list" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Quản lý sản phẩm
@@ -126,7 +126,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?action=users" class="nav-link">
+            <a href="index.php?action=users-list" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Quản lý người dùng
@@ -134,7 +134,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?action=comments" class="nav-link">
+            <a href="index.php?action=comments-list" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Quản lý bình luận
@@ -142,7 +142,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="index.php?action=orders" class="nav-link">
+            <a href="index.php?action=" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Quản lý đơn hàng
