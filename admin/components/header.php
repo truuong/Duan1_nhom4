@@ -30,7 +30,15 @@
   <!-- summernote -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css">
 
-  
+  <style>
+    .error {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px;
+    display: block;
+}
+
+  </style>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -129,7 +137,7 @@
             <a href="index.php?action=users-list" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Quản lý người dùng
+                Quản lý tài khoản
               </p>
             </a>
           </li>
