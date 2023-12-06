@@ -1,66 +1,60 @@
+
 <section class="content">
-      <div class="container-fluid">
+    <div class="container-fluid">
         <div class="row">
-                <div class="col-lg-12">
+            <div class="col-lg-12">
                 <h3 class="text-center">Thêm sản phẩm</h3>
-                    <form action="/xu-ly-them-san-pham" method="post" enctype="multipart/form-data">
-                        <!-- Tên sản phẩm -->
-                        <div class="mb-3">
-                            <label for="ten-san-pham" class="form-label">Tên sản phẩm:</label>
-                            <input type="text" class="form-control" id="ten-san-pham" name="tenSanPham" required>
-                        </div>
-                
-                        <!-- Giá sản phẩm -->
-                        <div class="mb-3">
-                            <label for="gia-san-pham" class="form-label">Giá sản phẩm:</label>
-                            <input type="number" class="form-control" id="gia-san-pham" name="giaSanPham" required>
-                        </div>
-                
-                        <!-- Ảnh sản phẩm -->
-                        <div class="mb-3">
-                            <label for="anh-san-pham" class="form-label">Ảnh sản phẩm:</label>
-                            <input type="file" class="form-control" id="anh-san-pham" name="anhSanPham" accept="image/*">
-                        </div>
-                
-                        <!-- Giảm giá % -->
-                        <div class="mb-3">
-                            <label for="giam-gia" class="form-label">Giảm giá %:</label>
-                            <input type="number" class="form-control" id="giam-gia" name="giamGia">
-                        </div>
-                
-                        <!-- Số lượng -->
-                        <div class="mb-3">
-                            <label for="so-luong" class="form-label">Số lượng:</label>
-                            <input type="number" class="form-control" id="so-luong" name="soLuong" required>
-                        </div>
-                
-                        <!-- Danh mục -->
-                        <div class="mb-3">
-                            <label for="danh-muc" class="form-label">Danh mục:</label>
-                            <select class="form-control" id="danh-muc" name="danhMuc" required>
-                                <option value="danh-muc-1">Danh mục 1</option>
-                                <option value="danh-muc-2">Danh mục 2</option>
-                                <option value="danh-muc-3">Danh mục 3</option>
-                                <!-- Thêm các tùy chọn danh mục khác nếu cần -->
-                            </select>
-                        </div>
-                
-                        <!-- Giới thiệu sản phẩm -->
-                        <div class="mb-3">
-                            <label for="gioi-thieu-san-pham" class="form-label">Giới thiệu sản phẩm:</label>
-                            <textarea class="form-control" id="gioi-thieu-san-pham" name="gioiThieuSanPham" rows="4" required></textarea>
-                        </div>
-                
-                        <!-- Chi tiết sản phẩm -->
-                        <div class="mb-3">
-                            <label for="chi-tiet-san-pham" class="form-label">Chi tiết sản phẩm:</label>
-                            <textarea class="form-control" id="chi-tiet-san-pham" name="chiTietSanPham" rows="8" required></textarea>
-                        </div>
-                
-                        <!-- Nút submit -->
-                        <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
-                    </form>
-                </div>
+                <form action="index.php?action=products-add" method="post" enctype="multipart/form-data">
+                    <!-- Tên sản phẩm -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Tên sản phẩm:</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+
+                    <!-- Giá sản phẩm -->
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Giá sản phẩm:</label>
+                        <input type="number" class="form-control" id="price" name="price" required >
+                    </div>
+
+                    <!-- Ảnh sản phẩm -->
+                    <div class="mb-3">
+                        <label for="exampleInputFile" class="form-label">Ảnh sản phẩm:</label>
+                        <input type="file" class="form-control" id="exampleInputFile" name="image" accept="image/*">
+                    </div>
+
+                    <!-- Giảm giá % -->
+                    <div class="mb-3">
+                        <label for="price_sale" class="form-label">Giảm giá %:</label>
+                        <input type="number" class="form-control" id="price_sale" name="price_sale">
+                    </div>
+                    
+                    <!-- Danh mục -->
+                    <div class="mb-3">
+                        <label for="cate_id" class="form-label">Danh mục:</label>
+                        <select class="form-control" id="cate_id" required name="cate_id" >
+                            <?php
+                            foreach ($listcategories as $cate) {
+                                extract($cate);
+                                echo '<option value="'.$id.'">'.$name.'</option>';
+                            }
+                            ?>
+
+
+                            <!-- Thêm các tùy chọn danh mục khác nếu cần -->
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                    <label for="intro" class="col-sm-3 text-end control-label col-form-label">Mô tả</label>         
+                    <input type="text"  class="form-control" id="intro" name="intro"  placeholder="Nhập mô tả..">        
+                    </div>
+
+                    <!-- Nút submit -->
+                    <button type="submit" id="add" name="add" class="btn btn-primary" value="Show Alert"onclick="confirm('Thêm Thành công!!')">Thêm sản phẩm</button>
+                </form>
             </div>
-      </div>
+        </div>
+    </div>
+    
 </section>
