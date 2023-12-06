@@ -1,11 +1,21 @@
 <?php
 require_once 'pdo.php';
 
-function thong_ke_hang_hoa(){
-    $sql =" SELECT loai.ma_loai as madm, loai.ten_loai as tendm, count(hang_hoa.ma_hh) as countsp, min(hang_hoa.don_gia) as minprice, max(hang_hoa.don_gia) as maxprice, avg(hang_hoa.don_gia) as avgprice FROM hang_hoa left join loai on loai.ma_loai=hang_hoa.ma_loai group by loai.ma_loai order by loai.ma_loai ASC ";
-    
+function product_by_category(){
+    $sql =" SELECT product_categories.id as madm, product_categories.name as tendm, count(products.id) as countsp, count(product_categories.id) as countdm FROM products left join product_categories on product_categories.id=products.cate_id group by product_categories.id order by product_categories.id ASC ";
+  
     $listthongke = pdo_query($sql);
     return $listthongke;
+}
+function count_products(){
+    $sql =" SELECT products.id from products where 1";
+    $countsluongsp = pdo_query($sql);
+    return $countsluongsp;
+}
+function count_orders(){
+    $sql =" SELECT orders.id from orders where 1";
+    $countorder = pdo_query($sql);
+    return $countorder;
 }
 
 // function thong_ke_binh_luan(){
@@ -14,7 +24,7 @@ function thong_ke_hang_hoa(){
 //             . " MIN(bl.ngay_bl) cu_nhat,"
 //             . " MAX(bl.ngay_bl) moi_nhat"
 //             . " FROM binh_luan bl "
-//             . " JOIN hang_hoa hh ON hh.ma_hh=bl.ma_hh "
+//             . " JOIN products hh ON hh.ma_hh=bl.ma_hh "
 //             . " GROUP BY hh.ma_hh, hh.ten_hh"
 //             . " HAVING so_luong > 0";
 //     return pdo_query($sql);

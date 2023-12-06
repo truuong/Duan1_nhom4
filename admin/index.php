@@ -4,9 +4,12 @@ include "../dao/pdo.php";
 include "../dao/sanpham.php";
 include "../dao/categories.php";
 include "../dao/User.php";
+include "../dao/thongke.php";
 
 
-
+$listthongke = product_by_category();
+$countsluongsp = count_products();
+$countorder = count_orders();
 include "components/header.php";
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
