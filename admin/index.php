@@ -14,7 +14,7 @@ if (isset($_GET['action'])) {
 
     switch ($action) {
         case 'categories-list':
-            $listcategories = categories_select_all();
+            $listcategories = loai_select_all()();
             include "categories/listCategories.php";
             break;
 
@@ -31,7 +31,7 @@ if (isset($_GET['action'])) {
                 $id = $_POST['id'];
                 categories_update($id,$name);
             }
-            $listcategories = categories_select_all();
+            $listcategories = loai_select_all()();
             include "categories/listCategories.php";
             break;
         case 'categories-add':
@@ -48,7 +48,7 @@ if (isset($_GET['action'])) {
                 categories_delete($id);
                 $thongbao = "Xóa thành công !";
             }
-            $listcategories = categories_select_all();
+            $listcategories = loai_select_all()();
             include "categories/listCategories.php";
             break;
             // ---------------------------------------------
@@ -57,7 +57,7 @@ if (isset($_GET['action'])) {
                     $id = $_GET['id'];
                     $dm = products_select_by_id($id);
                 }
-                $listcategories = categories_select_all();
+                $listcategories = loai_select_all()();
                 
         include "products/editProduct.php";
         break;
@@ -79,7 +79,7 @@ if (isset($_GET['action'])) {
             $thongbao = "uppdate thành công!"; 
         }
         
-        $listcategories=categories_select_all();
+        $listcategories=loai_select_all()();
         $listsp = products_select_all();
         include "products/listProducts.php";
         break;
@@ -98,7 +98,7 @@ if (isset($_GET['action'])) {
                 products_insert($name, $price, $price_sale, $image, $cate_id, $intro,$quantity);
                 $thongbao = "Thêm thành công!"; 
             }
-            $listcategories=categories_select_all();
+            $listcategories=loai_select_all()();
             include "products/addProduct.php";
             break;
 

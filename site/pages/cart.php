@@ -38,15 +38,39 @@
                                 <?php 
                                 foreach ($_SESSION["cart"] as $sp ){
                                     extract($sp);
-                                    $tt=(Int)$price*(Int)$quantity;
+                                   
+                                    $image = $img_path.$image;
+                                    $a = $price * ((100 - $price_sale) / 100);
+                                    if($price_sale>0){
+                                        $b = '
+                                        <div class="card-title">
+                                        <s>
+                                        '.number_format($price).' đ
+                                        </s>
+                                        <span class="bg-warning p-1 text-dark fw-bold rounded">-'.$price_sale.'%</span><br>
+                                        '. number_format($a).' đ
+                                        </div>';
+                                    }else{
+                                        $b = '
+                                        <div class="card-title">
+                                        '.number_format($price).' đ     
+                                        </div>';
+                                    };
 
-
+                                    
+                                    $tt=(Int)$price * ((100 - $price_sale) / 100)*(Int)$quantity;
+                                    if($price_sale>0){
+                                        $tt = '
+                                        <div class="card-title">
+                                        '. number_format($tt).' đ
+                                        </div>';
+                                    }
                                     echo '
                                     <tr>
                                     <td>
                                         <div class="media">
                                             <div class="d-flex">
-                                                <img src="'. IMG_PATH1 . $image .'" alt="" />
+                                                <img src="'.$image.'" alt="product-img" />
                                             </div>
                                             
                                         </div>
@@ -56,16 +80,16 @@
                                 </div></td>
 
                                     <td>
-                                        <h5>'.$price.'VNĐ</h5>
+                                        <h5>'.$b.'</h5>
                                     </td>
                                   
                                     
                                     <td class="col-sm-1 col-md-1" style="text-align: center">
-                                    <input type="number" class="form-control qty cart_update"name="quantity" value="'.$quantity.'" min="1">
+                                    <input type="number" class="form-control "name="quantity" value="'.$quantity.'" >
                                     </td>
                                     
                                     <td>
-                                        <h5>'.$tt.'VNĐ</h5>
+                                        <h5>'.$tt.'</h5>
                                     </td>
                                     <td>
                                         
@@ -115,14 +139,17 @@
                                         <h5>Tổng thanh toán</h5>
                                     </td>
                                     <td>
-                                        <h5><?=$tong?>VNĐ</h5>
+                                        <h5><?=$tong  = '
+                                        <div class="card-title">
+                                        '. number_format($tong).' đ
+                                        </div>';?></h5>
                                     </td>
                                 </tr>
                                 
                             </tbody>
                         </table>
                         <div class="checkout_btn_inner float-right">
-                            <a class="btn_1" href="index.php?page=shop">Tiếp tục mua hàng</a>
+                            <a class="btn_1" href="index.php?page=sanpham">Tiếp tục mua hàng</a>
                             <a class="btn_1 checkout_btn_1" href="index.php?page=order">Thanh toán</a>
                         </div>
                     </div>

@@ -57,7 +57,7 @@
                             <nav>
                                 <ul id="navigation">
                                     <li><a href="index.php?page=home">Trang chủ</a></li>
-                                    <li><a href="index.php?page=shop">Sản phẩm</a></li>
+                                    <li><a href="index.php?page=sanpham">Sản phẩm</a></li>
                                  
                                 </ul>
                             </nav>

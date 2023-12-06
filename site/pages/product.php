@@ -72,11 +72,19 @@
                                         <img class="image card-img-top" src="'.$image.'" alt="product img">
         
                                         <div class="overplay">
-                                            <form action="" method="post" class="d-flex justify-content-center">
-                                                <input type="hidden" name="id" id="id" value="'.$id.'">
-                                                <button class="btn" type="submit" name="them"><i class="ti-shopping-cart"></i>
-                                                    Thêm Vào Giỏ</button>
+                                            <form action="index.php?page=addcart" method="post" class="d-flex justify-content-center">
+                                                <input type="hidden" name="id" id="id" value="'.$id. '">
+                                                <input type="hidden" name="name" value="'.$name.'">
+                                                <input type="hidden" name="price" value="'.$price.'">
+                                                <input type="hidden" name="price_sale" value="'.$price_sale.'">
+                                                <input type="hidden" name="image" value="'.$image.'">
+                                                <input type="hidden" name="quantity" value="'.$quantity.'">
+                                                <button class="btn" type="submit" name="addcart" onclick="return confirm('."'".'  Thêm Thành Công'."'".')">
+                                               
+                                                        Thêm Vào Giỏ</button>
                                             </form>
+                                                
+                                           
                                             <a href="'.$linksp.'" class="btn"><i class="ti-eye"></i> Xem Chi Tiết&emsp;</a>
         
                                         </div>

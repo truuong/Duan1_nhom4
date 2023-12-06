@@ -1,6 +1,10 @@
 <?php
 ob_start();
 session_start();
+if(!isset($_SESSION["cart"])){
+    $_SESSION["cart"]=[];
+}
+
 include 'dao/pdo.php';
 include 'dao/categories.php';
 include 'dao/sanpham.php';
@@ -8,6 +12,7 @@ include 'dao/binhluan.php';
 include 'dao/User.php';
 include 'dao/thongke.php';
 include "global.php";
+include "dao/cart.php";
 include "site/components/header.php";
 $sptop8 =  products_select_top8();
 $dsdm = loai_select_all();
@@ -29,10 +34,11 @@ $page=$_GET["page"];
                 $id=$_POST["id"];
                 $name=$_POST["name"];
                 $price=$_POST["price"];
+                $price_sale=$_POST["price_sale"];
                 $image=$_POST["image"];
                 $quantity=$_POST["quantity"];
 
-                $sp=array("id"=>$id,"name"=>$name,"image"=>$image,"price"=>$price,"quantity"=>$quantity);
+                $sp=array("id"=>$id,"name"=>$name,"image"=>$image,"price"=>$price,"price_sale"=>$price_sale,"quantity"=>$quantity);
                 array_push($_SESSION["cart"],$sp);
                 // echo var_dump($_SESSION["cart"]);
                 header('location: index.php?page=shop');
@@ -44,6 +50,7 @@ $page=$_GET["page"];
             if(isset($_SESSION["cart"])){
                 $tong=get_tong();
             }
+            $listsp=products_select_all();
             include_once "site/pages/cart.php";
             break;
 
@@ -82,9 +89,12 @@ $page=$_GET["page"];
         case 'sanpham':
         if(isset($_GET['id']) && ($_GET['id'])>0){
             $id = $_GET['id'];
+            $listsp=products_select_all();
             $dssp = products_select_by_loai($id);
+            
             include 'site/pages/product.php';
         }else{
+            
             include 'site/pages/product.php';
         }
         break;
