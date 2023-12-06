@@ -7,6 +7,7 @@ include "../dao/User.php";
 
 
 
+
 include "components/header.php";
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -178,9 +179,20 @@ case 'users-update':
 // -----------------------------------------------------
 
         case 'comments-list':
+            $listbl = binh_luan_all();
             include "comments/listComments.php";
-
             break;
+
+        case 'xoabl':
+            if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                $id = $_GET['id'];
+                binh_luan_delete($id);
+                $thongbao = "Xóa thành công!";
+            }
+            $listbl = binh_luan_all();
+            include "comments/listComments.php";
+            break;
+        
         case 'comments-edit':
             include "orders/detailOrder.php";
             break;

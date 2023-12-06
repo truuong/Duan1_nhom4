@@ -1,11 +1,12 @@
 <?php
-if(isset($_SESSION['id'])) {
+include "site/components/header.php";
+if (isset($_SESSION['id'])){
     $ma_kh = $_SESSION["id"];
     $ma_hh = $_REQUEST['id'];
-}
-$dsbl = binh_luan_select_all($id);
-
-?>
+     }
+    $dsbl = binh_luan_select_all($id);
+   
+?> 
 <div class="slider-area ">
     <div class="single-slider slider-height2 d-flex align-items-center">
         <div class="container">
@@ -24,14 +25,14 @@ $dsbl = binh_luan_select_all($id);
         <div class="col-md-12">
             <div class="card">
                 <div class="row">
-                    <?php
-                    if(is_array($onesp)) {
-                        extract($onesp);
+                <?php
+                if (is_array($onesp)) {
+                    extract($onesp);
 
-                    }
-                    $image = $img_path.$image;
+                }
+                $image = $img_path . $image;
 
-                    ?>
+                ?>
                     <div class="col-md-6">
                         <div class="images p-3">
                             <div class="text-center p-4">
@@ -46,37 +47,46 @@ $dsbl = binh_luan_select_all($id);
                             </div>
                         </div>
                     </div>
+                    <style>
+                        .thumbnail img {
+                            border: 2px solid transparent;
+                            /* Mặc định viền trong suốt */
+                            cursor: pointer;
+                        }
+
+                        .thumbnail img.clicked {
+                            border: 2px solid #6c8e91;
+                            /* Màu viền khi được click */
+                        }
+                    </style>
+
                     <div class="col-md-6">
                         <div class="product p-4">
-                            <div class="mt-4 mb-3">
-                                <h5 class="text-uppercase">
-                                    <?php echo $name ?>
-                                </h5>
+                            <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand"><?php echo $cate_id ?></span>
+                                <h5 class="text-uppercase"><?php echo $name ?></h5>
                                 <div class="price d-flex flex-row align-items-center">
                                     <div class="card-title font-weight-bold">
                                         <?php
                                         $a = $price * ((100 - $price_sale) / 100);
-                                        if($price_sale > 0) {
-                                            echo '<s>
+                                        if($price_sale>0)
+                                        {
+                                            echo'<s>
                                             '.number_format($price).' đ
                                             </s>&ensp;
                                             <span class="bg-warning p-1 text-dark fw-bold rounded">-'.$price_sale.'%</span><br>
-                                            '.number_format($a).' đ';
-                                        } else {
-                                            echo number_format($price).'đ';
+                                            '. number_format($a).' đ';
+                                        }else{
+                                            echo number_format($price) .'đ';
                                         }
                                         ?>
                                     </div>
                                 </div>
                             </div>
-                            <p class="about font-weight-bold">
-                                <?php echo $intro ?>
-                            </p>
+                            <p class="about font-weight-bold"><?php echo $intro ?></p>
                             <div class="cart mt-4 align-items-center">
-                                <form action="" method="post">
-                                    <input type="hidden" name="ma_hh" id="ma_hh" value="<?php echo $id ?>">
-                                    <button class="btn btn-danger rounded text-uppercase mr-2 px-4">Add to cart</button>
-                                </form><br><br>
+                            <form action="" method="post">
+                                <input type="hidden" name="ma_hh" id="ma_hh" value="<?php echo $id ?>">
+                                <button class="btn btn-danger rounded text-uppercase mr-2 px-4">Add to cart</button></form><br><br>
                                 <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i>
                             </div>
                         </div>
@@ -84,27 +94,26 @@ $dsbl = binh_luan_select_all($id);
                 </div>
             </div>
             <div class="card bg-secondary">
-                <h1 class="p-3 mb-2 bg-light text-dark text-center font-weight-bold">Bình Luận</h1>
+                <h1 class="p-3 mb-2 bg-info text-dark text-center font-weight-bold">Bình luận</h1>
                 <div class="p-4 m-4">
                     <form action="index.php?page=binhluan" method="post">
-                        <input hidden value="<?php echo $id_product; ?>" id="ma_hh" name="ma_hh" type="text">
+                        <input hidden value="<?php echo $id; ?>" id="ma_hh" name="ma_hh" type="text">
                         <div class="d-flex flex-row align-items-start"><img class="rounded-circle"
                                 src="public/assets/img/product-img/avt.png" width="40">
-                            <textarea class="form-control ml-1 shadow-none textarea" name="noi_dung" id="noi_dung"
+                            <textarea class="form-control ml-1 shadow-none textarea"
                                 placeholder="Nhập nội dung bình luận..."></textarea>
                         </div>
                     </form>
                     <div class="mt-2 text-right m-2 p-1">
-                        <button class="btn btn-dark btn-sm rounded" id="binhluan" name="binhluan" type="button">Gửi bình
-                            luận</button>
+                        <button class="btn btn-dark btn-sm rounded" type="button">Gửi bình luận</button>
                     </div>
                     <?php foreach($dsbl as $bl) {
-                        extract($bl);
-                        echo ' 
-                    <div class="rounded bg-white p-3 m-1">
+                            extract($bl);
+                            echo ' 
+                    <div class="bg-light rounded bg-info p-1 m-1">
                   
-                        <div class="d-flex flex-row align-items-start">
-                        <img class="rounded-circle" src="public/assets/img/product-img/avt.png" width="40">
+                        <div class="d-flex flex-row align-items-start"><img class="rounded-circle"
+                                src="public/assets/img/product-img/avt.png" width="40">
                             <div class="d-flex flex-column justify-content-start ml-2"><span
                                     class="d-block font-weight-bold name">'.$user_id.'</span><span
                                     class="date text-black-50">'.$created_at.'</span></div>
@@ -113,15 +122,39 @@ $dsbl = binh_luan_select_all($id);
                             <p class="comment-text">'.$content.'</p>
                         </div>
                     </div>';
-                    }
-                    if(empty($bl)) {
-                        echo '
+                }if(empty($bl)){
+                    echo '
                     <div class="m-2 text-center">
-                    <h3 class="text-warning">Sản phẩm chưa có bình luận</h3>
+                    <h3 class="text-info">Sản phẩm chưa có bình luận</h3>
                     </div>
-                    ';
-                    } ?>
+                    '; 
+                 } ?>
                 </div>
+                <style>
+                    .date {
+                        font-size: 18px
+                    }
+
+                    .shadow-none {
+                        box-shadow: none
+                    }
+
+                    .name {
+                        color: #007bff
+                    }
+
+                    .cursor:hover {
+                        color: blue
+                    }
+
+                    .cursor {
+                        cursor: pointer
+                    }
+
+                    .textarea {
+                        resize: none
+                    }
+                </style>
             </div>
         </div>
 
@@ -137,21 +170,21 @@ $dsbl = binh_luan_select_all($id);
 
 
             <?php
-            foreach($spcungloai as $sp) {
+            foreach ($spcungloai as $sp) {
                 extract($sp);
                 $linksp = "index.php?page=chitietsanpham&id=".$id;
                 $image = $img_path.$image;
                 $a = $price * ((100 - $price_sale) / 100);
-                if($price_sale > 0) {
+                if($price_sale>0){
                     $b = '
                     <div class="card-title">
                     <s>
                     '.number_format($price).' đ
                     </s>
                     <span class="bg-warning p-1 text-dark fw-bold">-'.$price_sale.'%</span><br>
-                    '.number_format($a).' đ
+                    '. number_format($a).' đ
                     </div>';
-                } else {
+                }else{
                     $b = '
                     <div class="card-title">
                     '.number_format($price).' đ     
@@ -183,8 +216,38 @@ $dsbl = binh_luan_select_all($id);
                     ';
             }
             ?>
+            <style>
+                .img-container {
+                    position: relative;
+                }
 
+                .image {
+                    transition: .5s, ease;
+                    backface-visibility: hidden;
+                }
 
+                .overplay {
+                    transition: .5s, ease;
+                    opacity: 0;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+
+                .img-container:hover .image {
+                    opacity: 0.2;
+                }
+
+                .img-container:hover .overplay {
+                    opacity: 1;
+                }
+            </style>
+
+            <?php
+
+            ?>
+            
         </div>
     </div>
 </div>
@@ -214,3 +277,7 @@ $dsbl = binh_luan_select_all($id);
         });
     });
 </script>
+
+<?php
+include "site/components/footer.php";
+?>

@@ -6,27 +6,38 @@
                 <table class="table table-hover" style="text-align:center">
                     <thead>
                         <tr>
-                            <th>Stt</th>
-                            <th>Sản phẩm bình luận</th>
-                            <th>Số bình luận</th>
-                            <th>Bình luận gần nhất</th>
-                            <th>Quản lý</th>
+                            <th>Mã bình luận</th>
+                            <th>Nội dung</th>
+                            <th>Mã sản phẩm</th>
+                            <th>Mã khách hàng</th>
+                            <th>Ngày Bình luận</th>
+                            <th>Thao Tác</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>
-                                <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSJv_06krOqCNisodkCNGkfGSb17ukdCotgmzXtaXhdy2A_1HhCnaLMg5tkmgRlfbijiQzYtfl_vY9UOvjUAubDPmYYarUMJDNMiU_cSTV_uVPfwc1ivQoGWg&usqp=CAE" alt width="100px" height="100px">
-                            </td>
-                            <td>1</td>
-                            <td>2023/11/14</td>
-                            <td>
-                                <a href="index.php?action=comments&sub_action=edit" class="btn btn-info">Xem chi tiết</a>
-                            </td>
-                        </tr>
+                        <?php
+                        foreach($listbl as $sp) {
+                            extract($sp);
+                            $xoabl = "index.php?action=xoabl&id=".$id;
+                            echo '
+                                    <tr>
+                                    <td>'.$id.'</td>
+                                    <td>'.$content.'</td>
+                                    <td>'.$id_product.'</td>
+                                    <td>'.$user_id.'</td>
+                                    <td>'.$created_at.'</td>
+                                    <td>
+                                                <a onclick="return confirm('."'".'Bạn có muốn xoá Bình luận này không?'."'".');" href="'.$xoabl.'" class="btn btn-danger">Xóa</a>
+                                            </td>   
+                                    </tr>';
+                        }
+                        ?>
                     </tbody>
                 </table>
+                <?php
+                            if(isset($thongbao)&&($thongbao!="")){
+                            echo "<p class='text-success'>$thongbao</p>";}
+                            ?>
             </div>
         </div>
     </div>
