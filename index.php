@@ -29,7 +29,11 @@ $page=$_GET["page"];
             break;
 
         case 'cart':
-            include "site/pages/cart.php";
+            if(isset($_POST["themvaogio"])){
+                include "site/pages/cart.php";
+
+            }else{
+                include "site/pages/cart.php";            }
             break;
         
 
@@ -37,6 +41,20 @@ $page=$_GET["page"];
             include "site/pages/about.php";
             break;
         
+        case 'dangnhap':
+            if(isset($_POST["dangnhap"])){
+                $username=$_POST["username"];
+                $password=$_POST["password"];
+                $kh=checkuser($username,$password);
+                if(is_array($kh)){
+                    $_SESSION['ss_user']=$kh;
+                    header('Location: index.php');
+                }else{
+                    $thongbao="Tài khoản không tồn tại hoặc sai thông tin đăng nhập!!";
+                };
+            }
+            include "site/pages/login.php";
+            break;
 
          case 'noidungtimkiem':
         if(isset($_POST['noidung']) && ($_POST['noidung'])!=""){
@@ -73,20 +91,24 @@ $page=$_GET["page"];
        
 
         case 'binhluan':
-            if(isset($_POST['binhluan']) && isset($_SESSION['id'])){           
-                $user_id= $_SESSION['id']['name'];
-                $id_product = $_POST['ma_hh'];
-                $content = $_POST['noi_dung'];
+            if(isset($_POST['binhluan']) && isset($_SESSION['ss_user'])){           
+                $user_id= $_SESSION['ss_user']['id'];
+                $id_product = $_POST['id'];
+                $content = $_POST['content'];
                 binh_luan_insert($content,$user_id, $id_product);
                 header("location:".$_SERVER["HTTP_REFERER"]);
-                include 'site/chitietsanpham.php';
+                include 'site/pages/product_detail.php';
     
         }else{
-            include 'site/dangnhap.php';
+            include 'site/pages/login.php';
         }         
             break;
     
-            
+           case 'dangxuat':
+            session_unset();
+            header('Location: index.php');
+            break;
+          
         default:
             include "site/pages/home.php";
         

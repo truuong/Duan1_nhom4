@@ -1,4 +1,5 @@
 <main>
+    
     <!-- Hero Area Start-->
     <div class="slider-area ">
         <div class="single-slider slider-height2 d-flex align-items-center">
@@ -31,29 +32,42 @@
                     <div class="login_part_form">
                         <div class="login_part_form_iner">
                             <h3>Chào mừng quý khách trở lại ! <br></h3>
-                            <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                            
+                            <form class="row contact_form" action="index.php?page=dangnhap" method="post">
+                                    
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="text" class="form-control" id="name" name="name" value=""
-                                        placeholder="Tên đăng nhập">
+                                    <label for="username">Tên đăng nhập:</label>
+                                    <input type="text" class="form-control" id="username" name="username"  placeholder="Nhập tên đăng nhập" required>
                                 </div>
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="password" class="form-control" id="password" name="password" value=""
-                                        placeholder="Mật khẩu">
+                                    <label for="password">Mật khẩu:</label>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu" required>
                                 </div>
                                 <div class="col-md-12 form-group">
                                     <div class="creat_account d-flex align-items-center">
+                                    
                                         <input type="checkbox" id="f-option" name="selector">
                                         <label for="f-option">Lưu mật khẩu</label>
                                     </div>
-                                    <button type="submit" value="submit" class="btn_3">
+            
+                                    <button type="submit"   id="dangnhap" name="dangnhap" class="btn_3">
                                         Đăng nhập
                                     </button>
+                                    
                                     <a class="lost_pass" href="#">Quên mật khẩu?</a>
                                 </div>
                             </form>
+                            <h5 style="color:red;">
+                            <?php 
+                                    if(isset($thongbao)&&($thongbao !="")){
+                                        echo $thongbao;
+                                    }
+                            ?>
+                            </h5>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>

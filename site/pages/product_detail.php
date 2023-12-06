@@ -1,8 +1,8 @@
 <?php
-if(isset($_SESSION['id'])) {
-    $ma_kh = $_SESSION["id"];
-    $ma_hh = $_REQUEST['id'];
-}
+if(isset($_SESSION['ss_user'])) {
+    $user_id = $_SESSION["ss_user"];
+    $id = $_REQUEST['id'];
+}else{echo 'loi';}
 $dsbl = binh_luan_select_all($id);
 
 ?>
@@ -73,9 +73,9 @@ $dsbl = binh_luan_select_all($id);
                                 <?php echo $intro ?>
                             </p>
                             <div class="cart mt-4 align-items-center">
-                                <form action="" method="post">
+                                <form action="index.php?page=cart" method="post">
                                     <input type="hidden" name="ma_hh" id="ma_hh" value="<?php echo $id ?>">
-                                    <button class="btn btn-danger rounded text-uppercase mr-2 px-4">Add to cart</button>
+                                    <button id="themvaogio" name="themvaogio" class="btn btn-danger rounded text-uppercase mr-2 px-4">Thêm vào giỏ hàng</button>
                                 </form><br><br>
                                 <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i>
                             </div>
@@ -87,17 +87,17 @@ $dsbl = binh_luan_select_all($id);
                 <h1 class="p-3 mb-2 bg-light text-dark text-center font-weight-bold">Bình Luận</h1>
                 <div class="p-4 m-4">
                     <form action="index.php?page=binhluan" method="post">
-                        <input hidden value="<?php echo $id_product; ?>" id="ma_hh" name="ma_hh" type="text">
+                        <input hidden value="<?php echo $id; ?>" id="id" name="id" type="text">
                         <div class="d-flex flex-row align-items-start"><img class="rounded-circle"
                                 src="public/assets/img/product-img/avt.png" width="40">
-                            <textarea class="form-control ml-1 shadow-none textarea" name="noi_dung" id="noi_dung"
+                            <textarea class="form-control ml-1 shadow-none textarea" name="content" id="content"
                                 placeholder="Nhập nội dung bình luận..."></textarea>
                         </div>
-                    </form>
+                    
                     <div class="mt-2 text-right m-2 p-1">
-                        <button class="btn btn-dark btn-sm rounded" id="binhluan" name="binhluan" type="button">Gửi bình
-                            luận</button>
+                        <button class="btn btn-dark btn-sm rounded" id="binhluan" name="binhluan" type="submit">Gửi bình luận</button>
                     </div>
+                    </form>
                     <?php foreach($dsbl as $bl) {
                         extract($bl);
                         echo ' 
@@ -164,9 +164,9 @@ $dsbl = binh_luan_select_all($id);
                         <img class="image card-img-top" src="'.$image.'" alt="product img">
 
                         <div class="overplay">
-                            <form action="" method="post" class="d-flex justify-content-center">
+                            <form action="index.php?page=cart" method="post" class="d-flex justify-content-center">
                                 <input type="hidden" name="id" id="id" value="'.$id.'">
-                                <button class="btn" type="submit" name="them"><i class="ti-shopping-cart"></i>
+                                <button class="btn" type="submit" id="themvaogio" name="themvaogio"><i class="ti-shopping-cart"></i>
                                     Thêm Vào Giỏ</button>
                             </form>
                             <a href="'.$linksp.'" class="btn"><i class="ti-eye"></i> Xem Chi Tiết&emsp;</a>
@@ -182,7 +182,10 @@ $dsbl = binh_luan_select_all($id);
                     </div>
                     ';
             }
-            ?>
+            ?><form action="" method="post">
+            <input type="hidden" name="ma_hh" id="ma_hh" value="<?php echo $id ?>">
+            <button  name="themvaogio" class="btn btn-danger rounded text-uppercase mr-2 px-4">Thêm vào giỏ hàng</button>
+        </form>
 
 
         </div>

@@ -34,10 +34,10 @@ function users_select_by_id($id)
     $dm = pdo_query_one($sql);
     return $dm;
 }
-function users_check($id, $password)
-{
-    $sql = "SELECT * FROM users WHERE id ='$id ' AND password= '$password'";
-    $kh = pdo_query_one($sql);
+
+function checkuser($username,$password){
+    $sql = "SELECT * FROM users WHERE username= '$username' AND password= '$password' ";
+    $kh= pdo_query_one($sql);
     return $kh;
 }
 function users_select_by_email($id, $email)

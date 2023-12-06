@@ -42,6 +42,8 @@ if (isset($_GET['action'])) {
             include "users/listUsers.php";
             break;
 
+        
+
         case 'user-add':
             if (isset($_POST['add'])) {
                 $name = $_POST['name'];

@@ -65,8 +65,22 @@
                                             <span class="flaticon-search"></span>
                                     </div>
                                 </li>
-                                <li> <a href="index.php?page=login"><span class="flaticon-user"></span></a></li>
+                                <?php
+                                if(isset($_SESSION['ss_user'])){
+                                        extract($_SESSION['ss_user']);
+                                        $a="index.php?page=thongtinkh";
+                                        $b='<li>Đăng Xuất</li>';
+                                    }else{
+                                        $a="index.php?page=dangnhap";
+                                        $b="";
+                                    }
+
+                                ?>
+                                <li> <a href="<?php echo $a ?>"><span class="flaticon-user"></span></a></li>
+                                
                                 <li><a href="index.php?page=cart"><span class="flaticon-shopping-cart"></span></a> </li>
+                                <?php echo "<a class='text-dark' href='index.php?page=dangxuat'>$b</a>"; ?>
+
                             </ul>
                         </div>
                     </div>
