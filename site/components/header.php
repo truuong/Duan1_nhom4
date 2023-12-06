@@ -26,7 +26,7 @@
 
 <body>
     <!--? Preloader Start -->
-    <div id="preloader-active">
+    <!-- <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
@@ -35,7 +35,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Preloader Start -->
     <header>
         <!-- Header Start -->
@@ -53,10 +53,7 @@
                                 <ul id="navigation">
                                     <li><a href="index.php?page=home">Trang chủ</a></li>
                                     <li><a href="index.php?page=shop">Sản phẩm</a></li>
-                                    <li><a href="about.html">Về chúng tôi</a></li>
-                                    <li><a href="blog.html">Tin tức</a>
-                                    </li>
-                                    <li><a href="contact.html">Liên hệ</a></li>
+                                 
                                 </ul>
                             </nav>
                         </div>
@@ -65,7 +62,7 @@
                             <ul>
                                 <li>
                                     <div class="nav-search search-switch">
-                                        <span class="flaticon-search"></span>
+                                            <span class="flaticon-search"></span>
                                     </div>
                                 </li>
                                 <li> <a href="index.php?page=login"><span class="flaticon-user"></span></a></li>

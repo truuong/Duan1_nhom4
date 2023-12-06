@@ -36,7 +36,7 @@ function loai_delete($id ){
  * @throws PDOException lỗi truy vấn
  */
 function loai_select_all(){
-    $sql = "SELECT * FROM loai ORDER BY id  ASC";
+    $sql = "SELECT * FROM product_categories ORDER BY id  ASC";
     $listloai = pdo_query($sql);
     return $listloai;
 }

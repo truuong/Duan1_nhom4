@@ -43,45 +43,136 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-new-pro mb-30 text-center">
-                        <div class="product-img">
-                            <img src="public/assets/img/gallery/new_product1.png" alt="">
-                        </div>
-                        <div class="product-caption">
-                            <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                            <span>$ 45,743</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-new-pro mb-30 text-center">
-                        <div class="product-img">
-                            <img src="public/assets/img/gallery/new_product2.png" alt="">
-                        </div>
-                        <div class="product-caption">
-                            <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                            <span>$ 45,743</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-new-pro mb-30 text-center">
-                        <div class="product-img">
-                            <img src="public/assets/img/gallery/new_product3.png" alt="">
-                        </div>
-                        <div class="product-caption">
-                            <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                            <span>$ 45,743</span>
-                        </div>
-                    </div>
+            <?php
+            foreach ($spnew as $sp) {
+                extract($sp);
+                
+                $linksp = "index.php?page=chitietsanpham&id=".$id;
+                $image = $img_path.$image;
+                $a = $price * ((100 - $price_sale) / 100);
+                if($price_sale>0){
+                    $b = '
+                    <div class="card-title">
+                    <s>
+                    '.number_format($price).' đ
+                    </s>
+                    <span class="bg-warning p-1 text-dark fw-bold rounded">-'.$price_sale.'%</span><br>
+                    '. number_format($a).' đ
+                    </div>';
+                }else{
+                    $b = '
+                    <div class="card-title">
+                    '.number_format($price).' đ     
+                    </div>';
+                }
+                echo '
+                <div class="col-lg-3 mb-4">
+                                <div class="card w-100 p-3 h-100 d-inline-block">
+                                    <div class="img-container">
+                                        <img class="image card-img-top" src="'.$image.'" alt="product img">
+        
+                                        <div class="overplay">
+                                            <form action="" method="post" class="d-flex justify-content-center">
+                                                <input type="hidden" name="id" id="id" value="'.$id.'">
+                                                <button class="btn" type="submit" name="them"><i class="ti-shopping-cart"></i>
+                                                    Thêm Vào Giỏ</button>
+                                            </form>
+                                            <a href="'.$linksp.'" class="btn"><i class="ti-eye"></i> Xem Chi Tiết&emsp;</a>
+        
+                                        </div>
+                                    </div>
+                                    <div class="card-body font-weight-bold">
+                                    <h6>'.$name.'</h6>
+                                    '.$b.'
+
+                                    </div>
+                                    </div>
+                                    </div>
+                ';}?>
+            </div>
+             <!-- Button -->
+             <div class="row justify-content-center">
+                <div class="room-btn pt-70">
+                    <a href="index.php?page=shop" class="btn view-btn1">Xem thêm</a>
                 </div>
             </div>
         </div>
     </section>
     <!--  New Product End -->
-    <!--? Gallery Area Start -->
-    <div class="gallery-area">
+    
+    <!--? Popular Items Start -->
+    <div class="popular-items section-padding30">
+        <div class="container">
+            <!-- Section tittle -->
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-8 col-md-10">
+                    <div class="section-tittle mb-70 text-center">
+                        <h2>Sản Phẩm Được Quan Tâm</h2>
+                        <!-- <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            <?php
+            foreach ($sptop8 as $sp) {
+                extract($sp);
+                $linksp = "index.php?page=chitietsanpham&id=".$id;
+                $image = $img_path.$image;
+                $a = $price * ((100 - $price_sale) / 100);
+                if($price_sale>0){
+                    $b = '
+                    <div class="card-title">
+                    <s>
+                    '.number_format($price).' đ
+                    </s>
+                    <span class="bg-warning p-1 text-dark fw-bold rounded">-'.$price_sale.'%</span><br>
+                    '. number_format($a).' đ
+                    </div>';
+                }else{
+                    $b = '
+                    <div class="card-title">
+                    '.number_format($price).' đ     
+                    </div>';
+                }
+            echo '
+            
+            <div class="col-lg-3 mb-4">
+            <div class="card w-100 p-3 h-100 d-inline-block">
+                <div class="img-container">
+                    <img class="image card-img-top" src="'.$image.'" alt="product img">
+
+                    <div class="overplay">
+                        <form action="" method="post" class="d-flex justify-content-center">
+                            <input type="hidden" name="id" id="id" value="'.$id.'">
+                            <button class="btn" type="submit" name="them"><i class="ti-shopping-cart"></i>
+                                Thêm Vào Giỏ</button>
+                        </form>
+                        <a href="'.$linksp.'" class="btn"><i class="ti-eye"></i> Xem Chi Tiết&emsp;</a>
+
+                    </div>
+                </div>
+                <div class="card-body font-weight-bold">
+                <h6>'.$name.'</h6>
+                '.$b.'
+
+                </div>
+                </div>
+                </div>
+            ';}
+            
+            ?>
+            </div>
+            <!-- Button -->
+            <div class="row justify-content-center">
+                <div class="room-btn pt-70">
+                    <a href="index.php?page=shop" class="btn view-btn1">Xem thêm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Popular Items End -->
+<!--? Gallery Area Start -->
+<div class="gallery-area">
         <div class="container-fluid p-0 fix">
             <div class="row">
                 <div class="col-xl-6 col-lg-4 col-md-6 col-sm-6">
@@ -117,151 +208,6 @@
         </div>
     </div>
     <!-- Gallery Area End -->
-    <!--? Popular Items Start -->
-    <div class="popular-items section-padding30">
-        <div class="container">
-            <!-- Section tittle -->
-            <div class="row justify-content-center">
-                <div class="col-xl-7 col-lg-8 col-md-10">
-                    <div class="section-tittle mb-70 text-center">
-                        <h2>Sản phẩm bán chạy</h2>
-                        <!-- <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p> -->
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-popular-items mb-50 text-center">
-                        <div class="popular-img">
-                            <img src="public/assets/img/gallery/popular1.png" alt="">
-                            <div class="img-cap">
-                                <span>Add to cart</span>
-                            </div>
-                            <div class="favorit-items">
-                                <span class="flaticon-heart"></span>
-                            </div>
-                        </div>
-                        <div class="popular-caption">
-                            <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                            <span>$ 45,743</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-popular-items mb-50 text-center">
-                        <div class="popular-img">
-                            <img src="public/assets/img/gallery/popular2.png" alt="">
-                            <div class="img-cap">
-                                <span>Add to cart</span>
-                            </div>
-                            <div class="favorit-items">
-                                <span class="flaticon-heart"></span>
-                            </div>
-                        </div>
-                        <div class="popular-caption">
-                            <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                            <span>$ 45,743</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-popular-items mb-50 text-center">
-                        <div class="popular-img">
-                            <img src="public/assets/img/gallery/popular3.png" alt="">
-                            <div class="img-cap">
-                                <span>Add to cart</span>
-                            </div>
-                            <div class="favorit-items">
-                                <span class="flaticon-heart"></span>
-                            </div>
-                        </div>
-                        <div class="popular-caption">
-                            <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                            <span>$ 45,743</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-popular-items mb-50 text-center">
-                        <div class="popular-img">
-                            <img src="public/assets/img/gallery/popular4.png" alt="">
-                            <div class="img-cap">
-                                <span>Add to cart</span>
-                            </div>
-                            <div class="favorit-items">
-                                <span class="flaticon-heart"></span>
-                            </div>
-                        </div>
-                        <div class="popular-caption">
-                            <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                            <span>$ 45,743</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-popular-items mb-50 text-center">
-                        <div class="popular-img">
-                            <img src="public/assets/img/gallery/popular5.png" alt="">
-                            <div class="img-cap">
-                                <span>Add to cart</span>
-                            </div>
-                            <div class="favorit-items">
-                                <span class="flaticon-heart"></span>
-                            </div>
-                        </div>
-                        <div class="popular-caption">
-                            <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                            <span>$ 45,743</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-popular-items mb-50 text-center">
-                        <div class="popular-img">
-                            <img src="public/assets/img/gallery/popular6.png" alt="">
-                            <div class="img-cap">
-                                <span>Add to cart</span>
-                            </div>
-                            <div class="favorit-items">
-                                <span class="flaticon-heart"></span>
-                            </div>
-                        </div>
-                        <div class="popular-caption">
-                            <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                            <span>$ 45,743</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Button -->
-            <div class="row justify-content-center">
-                <div class="room-btn pt-70">
-                    <a href="catagori.html" class="btn view-btn1">Xem thêm</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Popular Items End -->
-    <!--? Video Area Start -->
-    <!-- <div class="video-area">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <div class="video-wrap">
-                        <div class="play-btn "><a class="popup-video"
-                                href="https://www.youtube.com/watch?v=KMc6DyEJp04"><i class="fas fa-play"></i></a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="thumb-content-box">
-                <div class="thumb-content">
-                    <h3>Next Video</h3>
-                    <a href="#"> <i class="flaticon-arrow"></i></a>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Video Area End -->
     <!--? Watch Choice  Start-->
     <div class="watch-area section-padding30">
         <div class="container">
@@ -288,7 +234,7 @@
                 <div class="col-lg-5 col-md-6">
                     <div class="watch-details mb-40">
                         <h2>Bảo hành 5 năm</h2>
-                        <p>Thụ tục nhanh gọn, thay pin miễn phí</p>
+                        <p>Thủ tục nhanh gọn, thay pin miễn phí</p>
                             <a href="#" class="btn">Xem sản phẩm</a>
                     </div>
                 </div>
