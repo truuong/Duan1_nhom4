@@ -1,18 +1,18 @@
 <?php
 require_once 'pdo.php';
 	
-function products_insert($name, $price, $price_sale, $image, $cate_id, $intro){
-    $sql = "INSERT INTO products(name,price,price_sale,image,intro, cate_id) VALUES ('$name', '$price', '$price_sale', '$image', '$intro', '$cate_id')";
+function products_insert($name, $price, $price_sale, $image, $cate_id, $intro,$quantity){
+    $sql = "INSERT INTO products(name,price,price_sale,image,intro,quantity, cate_id) VALUES ('$name', '$price', '$price_sale', '$image', '$intro','$quantity', '$cate_id')";
     
     pdo_execute($sql);
 }
 
 
 
-function products_update($id, $name, $price, $price_sale, $image,$cate_id ,$intro){
-        $sql = "UPDATE products SET name = ?, price = ?, price_sale = ?, image = ?,cate_id = ?, intro = ? WHERE id = ?";
+function products_update($id, $name, $price, $price_sale, $image,$cate_id ,$intro,$quantity){
+        $sql = "UPDATE products SET name = ?, price = ?, price_sale = ?, image = ?,cate_id = ?, intro = ? , quantity = ? WHERE id = ?";
         
-        pdo_execute($sql, $name, $price, $price_sale, $image,$cate_id, $intro, $id);
+        pdo_execute($sql, $name, $price, $price_sale, $image,$cate_id, $intro,$quantity, $id);
     }
     function products_select_by_id($id) {
         $sql = "SELECT * FROM products WHERE id=?";

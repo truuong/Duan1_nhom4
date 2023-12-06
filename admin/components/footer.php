@@ -41,7 +41,7 @@
 <script src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.1.2/build/js/tempusdominus-bootstrap-4.min.js"></script>
 
 <!-- Summernote -->
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js" >$('#summernote').summernote();</script>
 
 <!-- overlayScrollbars -->
 <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.0/js/jquery.overlayScrollbars.min.js"></script>

@@ -34,11 +34,7 @@
                     </div>
                     <button type="submit" id='add' name="add" class="btn btn-primary mt-3"onclick="confirm('Thêm Thành công!!')">Thêm mới</button>
                 </form>
-                <?php
-                if(isset($thongbao) && ($thongbao != "")) {
-                    echo "<p class='text-success'>$thongbao</p>";
-                }
-                ?>
+                
             </div>
         </div>
     </div>

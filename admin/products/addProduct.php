@@ -17,6 +17,11 @@
                         <input type="number" class="form-control" id="price" name="price" required >
                     </div>
 
+                    <div class="mb-3">
+                        <label for="price_sale" class="form-label">Giảm giá %:</label>
+                        <input type="number" class="form-control" id="price_sale" name="price_sale">
+                    </div>
+
                     <!-- Ảnh sản phẩm -->
                     <div class="mb-3">
                         <label for="exampleInputFile" class="form-label">Ảnh sản phẩm:</label>
@@ -24,11 +29,11 @@
                     </div>
 
                     <!-- Giảm giá % -->
-                    <div class="mb-3">
-                        <label for="price_sale" class="form-label">Giảm giá %:</label>
-                        <input type="number" class="form-control" id="price_sale" name="price_sale">
-                    </div>
                     
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">số lượng</label>
+                        <input type="number" class="form-control" id="quantity" name="quantity">
+                    </div>
                     <!-- Danh mục -->
                     <div class="mb-3">
                         <label for="cate_id" class="form-label">Danh mục:</label>
@@ -47,7 +52,7 @@
 
                     <div class="mb-3">
                     <label for="intro" class="col-sm-3 text-end control-label col-form-label">Mô tả</label>         
-                    <input type="text"  class="form-control" id="intro" name="intro"  placeholder="Nhập mô tả..">        
+                    <textarea type="text"  class="form-control"  id="summernote" name="intro"  placeholder="Nhập mô tả.."></textarea>        
                     </div>
 
                     <!-- Nút submit -->

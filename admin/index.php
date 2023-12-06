@@ -70,9 +70,10 @@ if (isset($_GET['action'])) {
             $price_sale = $_POST['price_sale'];
             $cate_id = $_POST['cate_id'];
             $intro = $_POST['intro'];
+            $quantity = $_POST['quantity'];
            
-            products_update($id, $name, $price, $price_sale, $image,$cate_id ,$intro);
-            $target_file =IMG_PATH_ADMIN.$image;
+            products_update($id, $name, $price, $price_sale, $image,$cate_id ,$intro,$quantity);
+            $target_file =IMG_PATH.$image;
             move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
             $thongbao = "uppdate thành công!"; 
         }
@@ -90,9 +91,10 @@ if (isset($_GET['action'])) {
                 $price_sale = $_POST['price_sale'];
                 $cate_id = $_POST['cate_id'];
                 $intro = $_POST['intro'];
-                $target_file =IMG_PATH_ADMIN.$image;
+                $quantity = $_POST['quantity'];
+                $target_file =IMG_PATH.$image;
                 move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-                products_insert($name, $price, $price_sale, $image, $cate_id, $intro);
+                products_insert($name, $price, $price_sale, $image, $cate_id, $intro,$quantity);
                 $thongbao = "Thêm thành công!"; 
             }
             $listcategories=categories_select_all();
@@ -108,7 +110,7 @@ if (isset($_GET['action'])) {
         case 'products-xoa':
             if (isset($_GET['id']) && ($_GET['id']) > 0) {
                 $id = $_GET['id'];
-                $image =IMG_PATH_ADMIN.get_image($id);
+                $image =IMG_PATH.get_image($id);
                 products_delete($id);
                 $thongbao = "Xóa thành công!";
             }

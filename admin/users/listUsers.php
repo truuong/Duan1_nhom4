@@ -42,11 +42,7 @@
 
                     </tbody>
                 </table>
-                <?php
-                if (isset($thongbao) && ($thongbao != "")) {
-                    echo "<p class='text-success'>$thongbao</p>";
-                }
-                ?>
+                
             </div>
         </div>
     </div>
