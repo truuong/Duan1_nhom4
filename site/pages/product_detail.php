@@ -2,7 +2,7 @@
 if(isset($_SESSION['ss_user'])) {
     $user_id = $_SESSION["ss_user"];
     $id = $_REQUEST['id'];
-}else
+}
 $dsbl = binh_luan_select_all($id);
 
 ?>
