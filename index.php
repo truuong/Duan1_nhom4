@@ -20,6 +20,7 @@ $sptop8 =  products_select_top8();
 $dsdm = loai_select_all();
 $spall = products_select_all();
 $spnew =  products_select_new();
+
 if (isset($_GET["page"])){
 $page=$_GET["page"];
     switch ($page){
@@ -218,20 +219,24 @@ $page=$_GET["page"];
 // ---------------------------------------------bình luận------------------------------------
 // ---------------------------------------------------------------------------------
         case 'binhluan':
-            if(isset($_POST['binhluan']) && isset($_SESSION['id'])){           
-                $user_id= $_SESSION['id']['name'];
-                $id_product = $_POST['ma_hh'];
-                $content = $_POST['noi_dung'];
+            if(isset($_POST['binhluan']) && isset($_SESSION['ss_user'])){           
+                $user_id= $_SESSION['ss_user']['id'];
+                $id_product = $_POST['id'];
+                $content = $_POST['content'];
                 binh_luan_insert($content,$user_id, $id_product);
                 header("location:".$_SERVER["HTTP_REFERER"]);
-                include 'site/chitietsanpham.php';
+                include 'site/pages/product_detail.php';
     
         }else{
-            include 'site/dangnhap.php';
+            include 'site/pages/login.php';
         }         
             break;
     
-            
+           case 'dangxuat':
+            session_unset();
+            header('Location: index.php');
+            break;
+          
         default:
             include "site/pages/home.php";
         

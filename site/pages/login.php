@@ -56,16 +56,13 @@
                                         <input type="checkbox" id="f-option" name="selector">
                                         <label for="f-option">Lưu mật khẩu</label>
                                     </div>
-                                    
-            
-                                    <button type="submit"   id="dangnhap" name="dangnhap" class="btn_3">
+                                    <button type="submit" value="submit" class="btn_3">
                                         Đăng nhập
                                     </button>
                                     
                                     <a class="lost_pass" href="#">Quên mật khẩu?</a>
                                 </div>
                             </form>
-                            
                         </div>
                     </div>
                 </div>
