@@ -42,6 +42,8 @@ function checkuser($username,$password){
     return $kh;
 }
 
+
+
 function users_select_by_email($id, $email)
 {
     $sql = "SELECT * FROM users WHERE id ='$id ' AND email='$email'";

@@ -24,7 +24,7 @@
                         <div class="login_part_text_iner">
                             <h2>Lần đầu đến với chúng tôi?</h2>
                             <p>Để có thể mua hàng cũng như chúng tôi có thể hỗ trợ quý khách được tốt hơn, xin vui lòng:</p>
-                            <a href="#" class="btn_3">Tạo tài khoản</a>
+                            <a href="index.php?page=register" class="btn_3">Tạo tài khoản</a>
                         </div>
                     </div>
                 </div>
@@ -44,11 +44,19 @@
                                     <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu" required>
                                 </div>
                                 <div class="col-md-12 form-group">
+                                <span style="color:red;">
+                            <?php 
+                                    if(isset($thongbao)&&($thongbao !="")){
+                                        echo $thongbao;
+                                    }
+                            ?>
+                            </span>
                                     <div class="creat_account d-flex align-items-center">
                                     
                                         <input type="checkbox" id="f-option" name="selector">
                                         <label for="f-option">Lưu mật khẩu</label>
                                     </div>
+                                    
             
                                     <button type="submit"   id="dangnhap" name="dangnhap" class="btn_3">
                                         Đăng nhập
@@ -57,13 +65,7 @@
                                     <a class="lost_pass" href="#">Quên mật khẩu?</a>
                                 </div>
                             </form>
-                            <h5 style="color:red;">
-                            <?php 
-                                    if(isset($thongbao)&&($thongbao !="")){
-                                        echo $thongbao;
-                                    }
-                            ?>
-                            </h5>
+                            
                         </div>
                     </div>
                 </div>

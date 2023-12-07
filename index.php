@@ -52,6 +52,66 @@ $page=$_GET["page"];
                     header('Location: index.php');
                     break;
 
+                
+
+            case 'register':
+                $errors = [];
+    
+                if (isset($_POST['register'])) {
+                    // Xử lý lỗi cho trường 'name'
+                    if (empty($_POST['name'])) {
+                        $errors['name']['required'] = 'Bắt buộc phải nhập tên người dùng';
+                    } else {
+                        $name = $_POST['name'];
+                    }
+            
+                    // Xử lý lỗi cho trường 'phone'
+                    if (empty($_POST['phone'])) {
+                        $errors['phone']['required'] = 'Bắt buộc phải nhập số điện thoại';
+                    } else {
+                        $phone = $_POST['phone'];
+                    }
+            
+                    // Xử lý lỗi cho trường 'password'
+                    if (empty($_POST['password'])) {
+                        $errors['password']['required'] = 'Bắt buộc phải nhập mật khẩu';
+                    } else {
+                        $password = $_POST['password'];
+                    }
+            
+                    // Xử lý lỗi cho trường 'email'
+                    if (empty($_POST['email'])) {
+                        $errors['email']['required'] = 'Bắt buộc phải nhập địa chỉ email';
+                    } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                        $errors['email']['invalid'] = 'Địa chỉ email không hợp lệ';
+                    } else {
+                        $email = $_POST['email'];
+                    }
+            
+                    // Xử lý lỗi cho trường 'username'
+                    if (empty($_POST['username'])) {
+                        $errors['username']['required'] = 'Bắt buộc phải nhập tên đăng nhập';
+                    } else {
+                        $username = $_POST['username'];
+                    }
+            
+                    // Xử lý lỗi cho trường 'permission'
+                    if (empty($_POST['permission'])) {
+                        $errors['permission']['required'] = 'Bắt buộc chọn quyền cho người dùng';
+                    } else {
+                        $permission = $_POST['permission'];
+                    }
+            
+                    // Kiểm tra nếu không có lỗi, thực hiện thêm người dùng
+                    if (empty($errors)) {
+                        users_insert($name, $phone, $password, $email, $username, $permission);
+                        $thongbao = "Đăng ký thành công!";
+                    }
+                }
+                include_once "site/pages/register.php";
+                break;
+        
+
 
 // ---------------------------------------------------------------Cart----------------------------
 // -------------------------------------------------------------------------------------------------------
@@ -107,7 +167,7 @@ $page=$_GET["page"];
                     $shipping_address=$_POST['shipping_address'];
     
                 }
-                insert_order($customer_name, $customer_phone, $shipping_address);
+                // insert_order($customer_name, $customer_phone, $shipping_address);
                 $listsp=products_select_all();
                 include_once "site/pages/order.php";
                 break;

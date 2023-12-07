@@ -77,15 +77,14 @@
                                 </li>
 
                                 <?php
-                                    if(isset($_SESSION['ss_user'])){
-                                        extract($_SESSION['ss_user']);
-                                        $a="index.php?page=thongtinkh";
-                                        $b='<li>Thoát</li>';
-                                    }else{
-                                        $a="index.php?page=dangnhap";
-                                        $b="";
-                                    }
-
+                                if (isset($_SESSION['ss_user'])) {
+                                    extract($_SESSION['ss_user']);
+                                    $a = "index.php?page=thongtinkh";
+                                    $b = '<i class="bi bi-door-closed">Đăng xuất</i>'; // Fix: Use double quotes for class attribute
+                                } else {
+                                    $a = "index.php?page=dangnhap";
+                                    $b = "";
+                                }
                                 ?>
                                 <li> <a href="<?php echo $a ?>"><span class="flaticon-user"></span></a></li>
                                 
