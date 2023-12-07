@@ -59,10 +59,10 @@
                                 <ul id="navigation">
                                     <li><a href="index.php?page=home">Trang chủ</a></li>
                                     <li><a href="index.php?page=sanpham">Sản phẩm</a></li>
-                                    <li><a href="about.html">Về chúng tôi</a></li>
-                                    <li><a href="blog.html">Tin tức</a>
+                                    <li><a href="">Về chúng tôi</a></li>
+                                    <li><a href="">Tin tức</a>
                                     </li>
-                                    <li><a href="contact.html">Liên hệ</a></li>
+                                    <li><a href="">Liên hệ</a></li>
                                     
                                 </ul>
                             </nav>

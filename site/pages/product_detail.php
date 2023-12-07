@@ -73,9 +73,14 @@ $dsbl = binh_luan_select_all($id);
                                 <?php echo $intro ?>
                             </p>
                             <div class="cart mt-4 align-items-center">
-                                <form action="" method="post">
+                                <form action="index.php?page=addcart" method="post">          
                                     <input type="hidden" name="ma_hh" id="ma_hh" value="<?php echo $id ?>">
-                                    <button class="btn btn-danger rounded text-uppercase mr-2 px-4">Add to cart</button>
+                                    <input type="hidden" name="name" value=" <?php echo $name ?>">
+                                    <input type="hidden" name="price" value=" <?php echo $price ?>">
+                                    <input type="hidden" name="price_sale" value="<?php echo $price_sale ?>">
+                                    <input type="hidden" name="image" value="<?php echo $image ?>">
+                                    <input type="hidden" name="quantity" value="<?php echo $quantity ?>">
+                                    <button type="submit" class="btn btn-danger rounded text-uppercase mr-2 px-4"name="addcart"onclick="return confirm('Thêm Thành Công')">Add to cart</button>
                                 </form><br><br>
                                 <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i>
                             </div>
@@ -164,11 +169,17 @@ $dsbl = binh_luan_select_all($id);
                         <img class="image card-img-top" src="'.$image.'" alt="product img">
 
                         <div class="overplay">
-                            <form action="" method="post" class="d-flex justify-content-center">
-                                <input type="hidden" name="id" id="id" value="'.$id.'">
-                                <button class="btn" type="submit" name="them"><i class="ti-shopping-cart"></i>
-                                    Thêm Vào Giỏ</button>
-                            </form>
+                        <form action="index.php?page=addcart" method="post" class="d-flex justify-content-center">
+                        <input type="hidden" name="id" id="id" value="'.$id. '">
+                        <input type="hidden" name="name" value="'.$name.'">
+                        <input type="hidden" name="price" value="'.$price.'">
+                        <input type="hidden" name="price_sale" value="'.$price_sale.'">
+                        <input type="hidden" name="image" value="'.$image.'">
+                        <input type="hidden" name="quantity" value="'.$quantity.'">
+                        <button class="btn" type="submit" name="addcart" onclick="return confirm('."'".'  Thêm Thành Công'."'".')">
+                       
+                                Thêm Vào Giỏ</button>
+                    </form>
                             <a href="'.$linksp.'" class="btn"><i class="ti-eye"></i> Xem Chi Tiết&emsp;</a>
 
                         </div>

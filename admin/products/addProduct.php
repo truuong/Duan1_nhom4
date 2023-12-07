@@ -24,6 +24,10 @@
                         <label for="price_sale" class="form-label">Giảm giá %:</label>
                         <input type="number" class="form-control" id="price_sale" name="price_sale">
                     </div>
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">số lượng</label>
+                        <input type="number" class="form-control "name="quantity" id="quantity" >
+                    </div>
 
                     <!-- Ảnh sản phẩm -->
                     <div class="mb-3">

@@ -30,7 +30,7 @@ if (isset($_GET['action'])) {
                 $id = $_POST['id'];
                 categories_update($id,$name);
             }
-            $listcategories = categories_select_all();
+            $listcategories = loai_select_all();
             include "categories/listCategories.php";
             break;
             case 'categories-add':
@@ -108,12 +108,13 @@ if (isset($_GET['action'])) {
                 $price_sale = $_POST['price_sale'];
                 $cate_id = $_POST['cate_id'];
                 $intro = $_POST['intro'];
-                $target_file =IMG_PATH_ADMIN.$image;
+                $quantity = $_POST['quantity'];
+                $target_file =IMG_PATH.$image;
                 move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-                products_insert($name, $price, $price_sale, $image, $cate_id, $intro);
+                products_insert($name, $price, $price_sale, $image, $cate_id, $intro,$quantity);
                 $thongbao = "Thêm thành công!"; 
             }
-            $listcategories=categories_select_all();
+            $listcategories=loai_select_all();
             include "products/addProduct.php";
             break;
         

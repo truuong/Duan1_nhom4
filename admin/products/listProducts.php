@@ -22,14 +22,15 @@
 
                         foreach ($listsp as $sp) {
                             extract($sp);
+                            $image = $img_path1.$image;
                             $sua = "index.php?action=products-edit&id=" . $id;
                             $xoa = "index.php?action=products-xoa&id=" . $id;
 
                             echo '<tr>
                                     <td>' .$id. '</td>
                                     <td>' .$name. '</td>
-                                    <td><img src="'.IMG_PATH.$image. '"
-                                        width="70px"  height="70px" alt="' .$name. '">
+                                    <td><img src="'.$image. '"
+                                        width="70px"  height="70px" alt="product-img"">
                                     </td>
                                     <td>' .$price. ' VNĐ</td>
                                     <td>' .$cate_id. '</td>

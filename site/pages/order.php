@@ -1,3 +1,13 @@
+<?php 
+session_start();
+
+
+
+
+?>
+
+
+
 <div class="slider-area ">
     <div class="single-slider slider-height2 d-flex align-items-center">
         <div class="container">
@@ -12,7 +22,7 @@
     </div>
 </div>
 <div class="container">
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="index.php?action=addorder " method="POST" enctype="multipart/form-data">
 
         <div class="row">
             <div class="col-md-6">
@@ -27,11 +37,7 @@
                     <input class="form-control" id="sdt" type="text" name="customer_phone">
 
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input class="form-control " id="email" type="email" name="customer_gmail">
-
-                </div>
+               
                 <div class="form-group">
                     <!-- <label for="email">Email</label> -->
                     <input class="form-control input-lg" value="2" id="email" type="hidden" name="user_id">
@@ -59,33 +65,46 @@
                                     <th>Name</th>
                                     <th></th>
                                     <th>Tổng</th>
-                                    <th class="text-center">Giá</th>
+                                    
                                     <th class="text-center">Tổng giá</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                            foreach ($_SESSION["cart"] as $sp ){
+                                    extract($sp);
+                                   
+                                    $image = $img_path.$image;
 
-                                <tr>
+
+                                    $tt=(Int)$price * ((100 - $price_sale) / 100)*(Int)$quantity;
+                                    if($price_sale>0){
+                                        $tt = '
+                                        <div class="card-title">
+                                        '. number_format($tt).' đ
+                                        </div>';
+                                    }
+                                echo '<tr>
                                     <td  class="col-sm-8 col-md-6">
-                                        <a class="thumbnail pull-left" href="#"> <img class="media-object" src="/public/assets/img/gallery/choce_watch1.png" style="width: 72px; height: 72px;"> </a>
+                                        <a class="thumbnail pull-left" href="#"> <img class="media-object" src="'.$image.'" style="width: 72px; height: 72px;"> </a>
                                     </td>
                                     <td  class="col-sm-1 col-md-1">
-                                    <strong> <sup>sdfsfd</sup></strong>
+                                    <strong> <sup>'.$name.'</sup></strong>
                                     </td>
                                     <td></td>
                                     <td class="col-sm-1 col-md-1" style="text-align: center;">
-                                        <input type="number" class="form-control qty cart_update" value="1" min="1">
+                                        <input type="number" class="form-control qty cart_update" value="'.$quantity.'" min="1">
                                     </td>
                                     
                                     <td class="col-sm-1 col-md-1 text-center">
-                                        <strong> <sup>25000VND</sup></strong>
+                                    <h6>'.$tt.'</h6>
                                     </td>
-                                    <td class="col-sm-1 col-md-1 text-center">
-                                        <strong> <sup>25000VND</sup></strong>
-                                    </td>
+                                    
                                    
-                                </tr>
+                                </tr>';
+                            }
+                                ?>
 
                                 <tr>
                                     
@@ -112,12 +131,15 @@
                                         <h4>Tổng hóa đơn</h4>
                                     </td>
                                     <td class="text-right">
-                                        <h4><strong>400000</strong></h4>
+                                        <h4><strong><?=$tong  = '
+                                        <div class="card-title">
+                                        '. number_format($tong).' đ
+                                        </div>';?></strong></h4>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <button type="submit" class="btn btn-success" style="">
+                                        <button type="submit" class="btn btn-success" name="addorder">
                                             Thanh toán <span class="glyphicon glyphicon-play"></span>
                                         </button>
                                     </td>
@@ -137,7 +159,7 @@
                             <td>
                                 <form action="" method="POST">
 
-                                    <button type="submit" class="btn btn-success" name="redirect" style="">
+                                    <button type="submit" class="btn btn-success" name="redirect" >
                                         Thanh toán vnpay <span class="glyphicon glyphicon-play"></span>
                                     </button>
                                 </form>

@@ -39,7 +39,7 @@
                                 foreach ($_SESSION["cart"] as $sp ){
                                     extract($sp);
                                    
-                                    $image = $img_path.$image;
+                                    $image = $img_path1.$image;
                                     $a = $price * ((100 - $price_sale) / 100);
                                     if($price_sale>0){
                                         $b = '
@@ -55,7 +55,7 @@
                                         <div class="card-title">
                                         '.number_format($price).' đ     
                                         </div>';
-                                    };
+                                    }
 
                                     
                                     $tt=(Int)$price * ((100 - $price_sale) / 100)*(Int)$quantity;
@@ -80,12 +80,12 @@
                                 </div></td>
 
                                     <td>
-                                        <h5>'.$b.'</h5>
+                                        <h5>'.$b.' </h5>
                                     </td>
                                   
                                     
                                     <td class="col-sm-1 col-md-1" style="text-align: center">
-                                    <input type="number" class="form-control "name="quantity" value="'.$quantity.'" >
+                                    <input type="number" class="form-control "name="quantity" value="'.$quantity.'"min="1" >
                                     </td>
                                     
                                     <td>
@@ -95,7 +95,7 @@
                                         
                                     </td>
                                     <td style="width:5px">
-                                        <a class="btn btn-danger">xóa</a>
+                                        <a href="ndex.php?page=delete1Cart&id=1" class="btn btn-danger">xóa</a>
                                     </td>
                                 </tr>
                                     

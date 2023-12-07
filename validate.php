@@ -92,6 +92,6 @@
                 $errors['intro']['min_length'] = 'Giới thiệu phải chứa ít nhất 10 ký tự';
             }
         }
-        
+    }
         
 ?>
