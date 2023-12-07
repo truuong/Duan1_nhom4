@@ -29,144 +29,169 @@
 
   <!-- summernote -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css">
+  
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {
+      'packages': ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
 
-  <style>
-    .error {
-    color: red;
-    font-size: 0.8em;
-    margin-top: 5px;
-    display: block;
-}
+    function drawChart() {
 
-  </style>
+      var data = google.visualization.arrayToDataTable([
+        ['danh mục', 'số lượng'],
+        <?php
+        $tongdm=count($listthongke);
+        $i=1;
+        
+        foreach ($listthongke as $thongke){
+          extract($thongke);
+          if($i==$tongdm) $dauphay=""; else $dauphay=",";
+          echo "['".$thongke['tendm']."', ".$thongke['countsp']."]".$dauphay;
+          $i+=1;
+        }
+        ?>
+      ]);
+
+      var options = {
+        title: 'Thống kê sản phẩm theo danh mục'
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+      chart.draw(data, options);
+    }
+  </script>
 
 </head>
+
 <body class="hold-transition sidebar-mini layout-fixed">
-<div class="wrapper">
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="/" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="" class="nav-link">Contact</a>
-      </li>
-    </ul>
+  <div class="wrapper">
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="/" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="" class="nav-link">Contact</a>
+        </li>
+      </ul>
 
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      <!-- Navbar Search -->
-      <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
-        </a>
-        <div class="navbar-search-block">
-          <form class="form-inline">
-            <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
-                </button>
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+        <!-- Navbar Search -->
+        <li class="nav-item">
+          <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+            <i class="fas fa-search"></i>
+          </a>
+          <div class="navbar-search-block">
+            <form class="form-inline">
+              <div class="input-group input-group-sm">
+                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                  <button class="btn btn-navbar" type="submit">
+                    <i class="fas fa-search"></i>
+                  </button>
+                  <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
               </div>
-            </div>
-          </form>
-        </div>
-      </li>
-    </ul>
-  </nav>
-  <!-- /.navbar -->
+            </form>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.navbar -->
 
- 
+
     <!-- Sidebar -->
-     <!-- Main Sidebar Container -->
- <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="#" class="brand-link">
-      <img src="https://images.immediate.co.uk/production/volatile/sites/3/2022/02/elden-ring-2add0bc.jpg?quality=90&resize=620,414" alt="AdminLTE Logo" class="brand-image img-circle elevation-3">
-      <span class="brand-text font-weight-light">Admin</span>
-    </a>
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-link">
+        <img src="https://images.immediate.co.uk/production/volatile/sites/3/2022/02/elden-ring-2add0bc.jpg?quality=90&resize=620,414" alt="AdminLTE Logo" class="brand-image img-circle elevation-3">
+        <span class="brand-text font-weight-light">Admin</span>
+      </a>
 
-<div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="info">
-          
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="info">
+
+          </div>
         </div>
-      </div>
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="index.php" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
+            <li class="nav-item">
+              <a href="index.php" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Dashboard
+                </p>
+              </a>
 
-          </li>
-          <li class="nav-item">
-            <a href="index.php?action=categories-list" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Quản lý danh mục
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="index.php?action=products-list" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Quản lý sản phẩm
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="index.php?action=users-list" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Quản lý tài khoản
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="index.php?action=comments-list" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Quản lý bình luận
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="index.php?action=" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Quản lý đơn hàng
-              </p>
-            </a>
-          </li>
+            </li>
+            <li class="nav-item">
+              <a href="index.php?action=categories-list" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Quản lý danh mục
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="index.php?action=products-list" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Quản lý sản phẩm
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="index.php?action=users-list" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Quản lý người dùng
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="index.php?action=comments-list" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Quản lý bình luận
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="index.php?action=" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Quản lý đơn hàng
+                </p>
+              </a>
+            </li>
 
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    
-    <!-- /.content-header -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+
+      <!-- /.content-header -->
