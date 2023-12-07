@@ -218,7 +218,7 @@
                     <div class="watch-details mb-40">
                         <h2>Đa dạng phong cách</h2>
                         <p>Đa dạng mẫu mã để quý khách có thể lựa chọn theo phong cách yêu thích.</p>
-                        <a href="#" class="btn">Xem sản phẩm</a>
+                        <a  href="index.php?page=shop" class="btn">Xem sản phẩm</a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-10">
@@ -237,7 +237,7 @@
                     <div class="watch-details mb-40">
                         <h2>Bảo hành 5 năm</h2>
                         <p>Thủ tục nhanh gọn, thay pin miễn phí</p>
-                        <a href="#" class="btn">Xem sản phẩm</a>
+                        <a href="index.php?page=shop" class="btn">Xem sản phẩm</a>
                     </div>
                 </div>
             </div>

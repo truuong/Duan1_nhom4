@@ -13,6 +13,7 @@ $sptop8 =  products_select_top8();
 $dsdm = loai_select_all();
 $spall = products_select_all();
 $spnew =  products_select_new();
+
 if (isset($_GET["page"])){
 $page=$_GET["page"];
     switch ($page){
