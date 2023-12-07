@@ -2,7 +2,7 @@
 if(isset($_SESSION['ss_user'])) {
     $user_id = $_SESSION["ss_user"];
     $id = $_REQUEST['id'];
-}else{echo 'loi';}
+}else
 $dsbl = binh_luan_select_all($id);
 
 ?>
@@ -182,9 +182,7 @@ $dsbl = binh_luan_select_all($id);
                     </div>
                     ';
             }
-            ?><form action="" method="post">
-            <input type="hidden" name="ma_hh" id="ma_hh" value="<?php echo $id ?>">
-            <button  name="themvaogio" class="btn btn-danger rounded text-uppercase mr-2 px-4">Thêm vào giỏ hàng</button>
+            ?>
         </form>
 
 
