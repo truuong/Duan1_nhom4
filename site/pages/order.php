@@ -71,11 +71,19 @@ session_start();
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php
+                    if(is_array($onesp)) {
+                        extract($onesp);
+
+                    }
+                    $image = $img_path.$image;
+
+                    ?>
                                 <?php
                             foreach ($_SESSION["cart"] as $sp ){
                                     extract($sp);
                                    
-                                    $image = $img_path.$image;
+                                   
 
 
                                     $tt=(Int)$price * ((100 - $price_sale) / 100)*(Int)$quantity;

@@ -1,9 +1,11 @@
 <?php
+include "../global.php";
 include "../dao/global.php";
 include "../dao/pdo.php";
 include "../dao/sanpham.php";
 include "../dao/categories.php";
 include "../dao/User.php";
+include "../dao/thongke.php";
 
 $listthongke = product_by_category();
 $countsluongsp = count_products();
@@ -90,8 +92,7 @@ if (isset($_GET['action'])) {
             $quantity = $_POST['quantity'];
            
             products_update($id, $name, $price, $price_sale, $image,$cate_id ,$intro,$quantity);
-            $target_file =IMG_PATH.$image;
-            move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+            
             $thongbao = "uppdate thành công!"; 
         }
         

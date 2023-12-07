@@ -35,12 +35,19 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php
+                    if(is_array($onesp)) {
+                        extract($onesp);
+
+                    }
+                    $image = $img_path.$image;
+
+                    ?>
                                 <?php 
                                 foreach ($_SESSION["cart"] as $sp ){
                                     extract($sp);
                                    
-                                    $image = $img_path1.$image;
-                                    $a = $price * ((100 - $price_sale) / 100);
+                                     $a = $price * ((100 - $price_sale) / 100);
                                     if($price_sale>0){
                                         $b = '
                                         <div class="card-title">

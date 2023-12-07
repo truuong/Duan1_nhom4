@@ -18,8 +18,10 @@
                         </tr>
                     </thead>
                     <tbody>
+                    
                         <?php
 
+    
                         foreach ($listsp as $sp) {
                             extract($sp);
                             $image = $img_path1.$image;
@@ -29,8 +31,8 @@
                             echo '<tr>
                                     <td>' .$id. '</td>
                                     <td>' .$name. '</td>
-                                    <td><img src="'.$image. '"
-                                        width="70px"  height="70px" alt="product-img"">
+                                    <td><img src="'.$image.'"
+                                        width="70px"  height="70px" >
                                     </td>
                                     <td>' .$price. ' VNĐ</td>
                                     <td>' .$cate_id. '</td>

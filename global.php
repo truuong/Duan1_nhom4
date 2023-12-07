@@ -81,6 +81,6 @@ function check_login(){
     header("location: $SITE_URL/tai-khoan/dang-nhap.php");
     }        
 $img_path= "public/assets/img/product-img/";
-$img_path1= "./public/assets/img/product-img/";
+$img_path1= "../public/assets/img/product-img/";
             
 ?>    
