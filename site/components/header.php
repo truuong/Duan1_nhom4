@@ -43,6 +43,7 @@
     </div> -->
     <!-- Preloader Start -->
     <header>
+        
         <!-- Header Start -->
         <div class="header-area">
             <div class="main-header header-sticky">
@@ -58,7 +59,11 @@
                                 <ul id="navigation">
                                     <li><a href="index.php?page=home">Trang chủ</a></li>
                                     <li><a href="index.php?page=sanpham">Sản phẩm</a></li>
-                                 
+                                    <li><a href="about.html">Về chúng tôi</a></li>
+                                    <li><a href="blog.html">Tin tức</a>
+                                    </li>
+                                    <li><a href="contact.html">Liên hệ</a></li>
+                                    
                                 </ul>
                             </nav>
                         </div>
@@ -70,8 +75,23 @@
                                             <span class="flaticon-search"></span>
                                     </div>
                                 </li>
-                                <li> <a href="index.php?page=login"><span class="flaticon-user"></span></a></li>
+
+                                <?php
+                                    if(isset($_SESSION['ss_user'])){
+                                        extract($_SESSION['ss_user']);
+                                        $a="index.php?page=thongtinkh";
+                                        $b='<li>Thoát</li>';
+                                    }else{
+                                        $a="index.php?page=dangnhap";
+                                        $b="";
+                                    }
+
+                                ?>
+                                <li> <a href="<?php echo $a ?>"><span class="flaticon-user"></span></a></li>
+                                
                                 <li><a href="index.php?page=cart"><span class="flaticon-shopping-cart"></span></a> </li>
+                                <?php echo "<a class='text-dark' href='index.php?page=dangxuat'>$b</a>"; ?>
+
                             </ul>
                         </div>
                     </div>
@@ -84,3 +104,4 @@
         </div>
         <!-- Header End -->
     </header>
+    
