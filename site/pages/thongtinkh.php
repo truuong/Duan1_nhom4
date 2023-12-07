@@ -11,7 +11,7 @@ if(isset($_SESSION["ss_user"]) && (is_array($_SESSION['ss_user']))){
                         Thông Tin Khách Hàng
                     </div>
                     <div class="card-body">
-                        <form method="post" action="index.php?p">
+                        <form method="post" action="index.php?page=thongtinkh">
                             <div class="mb-3">
                                 <label for="id" class="form-label">ID</label>
                                 <input disabled type="text" class="form-control" value="<?php echo $id?>" id="id" name="id" required>
@@ -33,7 +33,9 @@ if(isset($_SESSION["ss_user"]) && (is_array($_SESSION['ss_user']))){
                                 <input type="number" class="form-control" id="phone" name="phone" value="<?php echo $phone?>"  required>
                             </div>
                             <button type="submit" class="btn btn-primary">Lưu Thông Tin</button>
+                            
                         </form>
+                        
                     </div>
                 </div>
                 </div>
