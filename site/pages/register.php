@@ -70,7 +70,7 @@
 
                                 
                                 <div class="input-group mb-3">
-                                <input class="form-check-input" value="1" type="hidden" name="permission"
+                                <input class="form-check-input" value="0" type="hidden" name="permission"
                                     id="permission" >
                                 </div>
                                 <div class="mb-3">
