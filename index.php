@@ -47,16 +47,19 @@ $page=$_GET["page"];
                     if (empty($_POST['name'])) {
                         $errors['name']['required'] = 'Bắt buộc phải nhập tên người dùng';
                     } else {
-                        $name = $_POST['name'];
+                        $name=$_POST['name'];
                     }
             
                     // Xử lý lỗi cho trường 'phone'
                     if (empty($_POST['phone'])) {
-                        $errors['phone']['required'] = 'Bắt buộc phải nhập số điện thoại';
+                        $errors['phone']['required'] = 'Bắt buộc nhập số điện thoại';
+                    } else if (substr($_POST['phone'], 0, 1) === '0' || strlen($_POST['phone']) < 10) {
+                        $errors['phone']['invalid'] = 'Số điện thoại phải bắt đầu từ 0 và không ít hơn 9 số';
                     } else {
                         $phone = $_POST['phone'];
                     }
-            
+                    
+                
                     // Xử lý lỗi cho trường 'password'
                     if (empty($_POST['password'])) {
                         $errors['password']['required'] = 'Bắt buộc phải nhập mật khẩu';
@@ -76,8 +79,12 @@ $page=$_GET["page"];
                     // Xử lý lỗi cho trường 'username'
                     if (empty($_POST['username'])) {
                         $errors['username']['required'] = 'Bắt buộc phải nhập tên đăng nhập';
-                    } else {
-                        $username = $_POST['username'];
+                    } else{
+                        if(is_array(checkusername($_POST["username"]))){
+                            $errors['username']['repeat'] = 'Tên người dùng đã tồn tại !!!';
+                        }else{
+                            $username=$_POST["username"];
+                        }
                     }
             
                     // Xử lý lỗi cho trường 'permission'
@@ -85,10 +92,13 @@ $page=$_GET["page"];
                         $errors['permission']['required'] = 'Bắt buộc chọn quyền cho người dùng';
                     } else {
                         $permission = $_POST['permission'];
+                       
                     }
-            
+                    
+                    
                     // Kiểm tra nếu không có lỗi, thực hiện thêm người dùng
                     if (empty($errors)) {
+                        
                         users_insert($name, $phone, $password, $email, $username, $permission);
                         $thongbao = "Đăng ký thành công!";
                     }

@@ -39,6 +39,7 @@
                                     <input type="text" class="form-control" id="username" name="username"  placeholder="Nhập tên đăng nhập...">
                                     <?php echo !empty($errors['username']['required']) ? '<div style="color:red;">' . $errors['username']['required'] . '</div>' : ''; ?>
                                     <?php echo !empty($errors['username']['invalid']) ? '<div style="color:red;">' . $errors['username']['invalid'] . '</div>' : ''; ?>
+                                    <?php echo !empty($errors['username']['repeat']) ? '<div style="color:red;">' . $errors['username']['repeat'] . '</div>' : ''; ?>
                                 </div>
 
                                 <div class="mb-3">
@@ -52,6 +53,7 @@
                                     <label for="phone" class="form-label">Số điện thoại:</label>
                                     <input type="number" class="form-control" id="phone" name="phone"  placeholder="Nhập số điện thoại...">
                                     <?php echo !empty($errors['phone']['required']) ? '<div style="color:red;">' . $errors['phone']['required'] . '</div>' : ''; ?>
+                                    <?php echo !empty($errors['phone']['invalid']) ? '<div style="color:red;">' . $errors['phone']['invalid'] . '</div>' : ''; ?>
                                 </div>
 
                                 <div class="mb-3">
@@ -70,7 +72,7 @@
 
                                 
                                 <div class="input-group mb-3">
-                                <input class="form-check-input" value="0" type="hidden" name="permission"
+                                <input class="form-check-input" value="1" type="hidden" name="permission"
                                     id="permission" >
                                 </div>
                                 <div class="mb-3">

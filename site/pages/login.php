@@ -37,11 +37,11 @@
                                     
                                 <div class="col-md-12 form-group p_star">
                                     <label for="username">Tên đăng nhập:</label>
-                                    <input type="text" class="form-control" id="username" name="username"  placeholder="Nhập tên đăng nhập" required>
+                                    <input type="text" class="form-control" id="username" name="username"  placeholder="Nhập tên đăng nhập" >
                                 </div>
                                 <div class="col-md-12 form-group p_star">
                                     <label for="password">Mật khẩu:</label>
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu" required>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu" >
                                 </div>
                                 <div class="col-md-12 form-group">
                                 <span style="color:red;">

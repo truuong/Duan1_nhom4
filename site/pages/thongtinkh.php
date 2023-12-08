@@ -32,7 +32,12 @@ if(isset($_SESSION["ss_user"]) && (is_array($_SESSION['ss_user']))){
                                 <label for="phone" class="form-label">Số Điện Thoại</label>
                                 <input type="number" class="form-control" id="phone" name="phone" value="<?php echo $phone?>"  required>
                             </div>
-                            <button type="submit" class="btn btn-primary">Lưu Thông Tin</button>
+                            <button type="submit" class="btn_3">Lưu Thông Tin</button>
+                            <?php
+                                if($permission==1){
+                                    echo "<a href='admin/' class='btn_3'>Trang quản trị</a>";
+                                }
+                            ?>
                             
                         </form>
                         

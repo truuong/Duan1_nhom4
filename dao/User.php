@@ -42,6 +42,12 @@ function checkuser($username,$password){
     return $kh;
 }
 
+function checkusername($username){
+    $sql = "SELECT * FROM users WHERE username= '$username' ";
+    $kq= pdo_query_one($sql);
+    return $kq;
+}
+
 
 
 function users_select_by_email($id, $email)
