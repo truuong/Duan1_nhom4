@@ -1,6 +1,5 @@
 <?php
 if(isset($_SESSION['ss_user'])) {
-    $user_id = $_SESSION["ss_user"];
     $id = $_REQUEST['id'];
 }
 $dsbl = binh_luan_select_all($id);
@@ -90,7 +89,7 @@ $dsbl = binh_luan_select_all($id);
                         <input hidden value="<?php echo $id; ?>" id="id" name="id" type="text">
                         <div class="d-flex flex-row align-items-start"><img class="rounded-circle"
                                 src="public/assets/img/product-img/avt.png" width="40">
-                            <textarea class="form-control ml-1 shadow-none textarea" name="content" id="content"
+                            <textarea required class="form-control ml-1 shadow-none textarea" name="content" id="content"
                                 placeholder="Nhập nội dung bình luận..."></textarea>
                         </div>
                     
@@ -106,7 +105,7 @@ $dsbl = binh_luan_select_all($id);
                         <div class="d-flex flex-row align-items-start">
                         <img class="rounded-circle" src="public/assets/img/product-img/avt.png" width="40">
                             <div class="d-flex flex-column justify-content-start ml-2"><span
-                                    class="d-block font-weight-bold name">'.$user_id.'</span><span
+                                    class="d-block font-weight-bold name">'.$name.'</span><span
                                     class="date text-black-50">'.$created_at.'</span></div>
                         </div>
                         <div class="mt-2">

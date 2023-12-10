@@ -23,7 +23,8 @@ function binh_luan_select_by_product($id_product){
     return $listbl;
 }
 function binh_luan_select_all($id){
-    $sql = "SELECT * FROM comments WHERE id_product='$id' ORDER BY created_at DESC";
+    $sql = "SELECT c.id,content,c.created_at,user_id,id_product,name FROM comments c LEFT JOIN users u ON c.user_id = u.id
+    WHERE id_product='$id' ORDER BY created_at DESC";
     $listbl = pdo_query($sql);
     return $listbl;
 }
