@@ -94,8 +94,15 @@ if (isset($_GET['action'])) {
             break;
 
         case 'comments-list':
-            $listbl = binh_luan_all();
+            $listtk = binh_luan_thongke();
             include "comments/listComments.php";
+            break;
+        case 'chitietbl':
+            if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                $id = $_GET['id'];
+                $listblct = binh_luan_select_by_id($id);
+            }
+            include "comments/detailListComments.php";
             break;
 
         case 'xoabl':
@@ -104,8 +111,8 @@ if (isset($_GET['action'])) {
                 binh_luan_delete($id);
                 $thongbao = "Xóa thành công!";
             }
-            $listbl = binh_luan_all();
-            include "comments/listComments.php";
+            $listblct = binh_luan_select_by_id($id);
+            include "comments/detailListComments.php";
             break;
         
         case 'comments-edit':

@@ -6,29 +6,25 @@
                 <table class="table table-hover" style="text-align:center">
                     <thead>
                         <tr>
-                            <th>Mã bình luận</th>
-                            <th>Nội dung</th>
-                            <th>Mã sản phẩm</th>
-                            <th>Mã khách hàng</th>
-                            <th>Ngày Bình luận</th>
+                            <th>Mã Loại sản phẩm</th>
+                            <th>Tên Loại sản phẩm</th>
+                            <th>Số lượng BL</th>
                             <th>Thao Tác</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        foreach($listbl as $sp) {
+                        foreach($listtk as $sp) {
                             extract($sp);
-                            $xoabl = "index.php?action=xoabl&id=".$id;
+                            $ctbl = "index.php?action=chitietbl&id=". $id;
                             echo '
                                     <tr>
                                     <td>'.$id.'</td>
-                                    <td>'.$content.'</td>
-                                    <td>'.$id_product.'</td>
-                                    <td>'.$user_id.'</td>
-                                    <td>'.$created_at.'</td>
+                                    <td>'.$name.'</td>
+                                    <td>'.$slbl.'</td>
                                     <td>
-                                                <a onclick="return confirm('."'".'Bạn có muốn xoá Bình luận này không?'."'".');" href="'.$xoabl.'" class="btn btn-danger">Xóa</a>
-                                            </td>   
+                                    <a href="' . $ctbl . '" class="btn btn-primary">Chi Tiết</a>
+                                    </td>   
                                     </tr>';
                         }
                         ?>

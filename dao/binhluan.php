@@ -34,9 +34,19 @@ function binh_luan_all(){
     return $listbl;
 }
 
+function binh_luan_thongke(){
+    $sql = "SELECT pc.id,pc.name, count(p.id) as slbl FROM comments c LEFT JOIN products p ON c.id_product = p.id 
+    LEFT JOIN product_categories pc ON pc.id = p.cate_id GROUP BY p.cate_id;";
+    $listtk = pdo_query($sql);
+    return $listtk;
+}
+
 function binh_luan_select_by_id($id){
-    $sql = "SELECT * FROM comments WHERE ma_bl=";
-    return pdo_query_one($sql);
+    $sql = "SELECT c.id idbl,c.content nd,c.id_product mahh,p.name tenhh,c.user_id makh,u.name tenkh,c.created_at ngaybl
+    FROM comments c LEFT JOIN products p ON c.id_product = p.id LEFT JOIN users u ON u.id = c.user_id 
+    WHERE cate_id='$id' ORDER BY c.created_at DESC";
+    $listblct = pdo_query($sql);
+    return $listblct;
 }
 
 function binh_luan_exist($ma_bl){
