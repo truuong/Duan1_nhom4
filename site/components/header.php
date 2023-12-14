@@ -22,11 +22,16 @@
     <link rel="stylesheet" href="public/assets/css/slick.css">
     <link rel="stylesheet" href="public/assets/css/nice-select.css">
     <link rel="stylesheet" href="public/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    
 </head>
 
 <body>
     <!--? Preloader Start -->
-    <div id="preloader-active">
+    <!-- <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
@@ -35,9 +40,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Preloader Start -->
     <header>
+        
         <!-- Header Start -->
         <div class="header-area">
             <div class="main-header header-sticky">
@@ -52,11 +58,12 @@
                             <nav>
                                 <ul id="navigation">
                                     <li><a href="index.php?page=home">Trang chủ</a></li>
-                                    <li><a href="index.php?page=shop">Sản phẩm</a></li>
-                                    <li><a href="about.html">Về chúng tôi</a></li>
-                                    <li><a href="blog.html">Tin tức</a>
+                                    <li><a href="index.php?page=sanpham">Sản phẩm</a></li>
+                                    <li><a href="">Về chúng tôi</a></li>
+                                    <li><a href="">Tin tức</a>
                                     </li>
-                                    <li><a href="contact.html">Liên hệ</a></li>
+                                    <li><a href="">Liên hệ</a></li>
+                                    
                                 </ul>
                             </nav>
                         </div>
@@ -65,11 +72,25 @@
                             <ul>
                                 <li>
                                     <div class="nav-search search-switch">
-                                        <span class="flaticon-search"></span>
+                                            <span class="flaticon-search"></span>
                                     </div>
                                 </li>
-                                <li> <a href="index.php?page=login"><span class="flaticon-user"></span></a></li>
+
+                                <?php
+                                if (isset($_SESSION['ss_user'])) {
+                                    extract($_SESSION['ss_user']);
+                                    $a = "index.php?page=thongtinkh";
+                                    $b = '<i class="bi bi-door-closed">Đăng xuất</i>'; // Fix: Use double quotes for class attribute
+                                } else {
+                                    $a = "index.php?page=dangnhap";
+                                    $b = "";
+                                }
+                                ?>
+                                <li> <a href="<?php echo $a ?>"><span class="flaticon-user"></span></a></li>
+                                
                                 <li><a href="index.php?page=cart"><span class="flaticon-shopping-cart"></span></a> </li>
+                                <?php echo "<a class='text-dark' href='index.php?page=dangxuat'>$b</a>"; ?>
+
                             </ul>
                         </div>
                     </div>
@@ -82,3 +103,4 @@
         </div>
         <!-- Header End -->
     </header>
+    

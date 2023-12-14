@@ -1,3 +1,4 @@
+
 <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -39,10 +40,6 @@
                     ?>
                         </tbody>
                     </table>
-                    <?php
-                    if(isset($thongbao)&&($thongbao!="")){
-                        echo "<p class='text-success'>$thongbao</p>";}
-                    ?>
                 </div>
             </div>
       </div><!-- /.container-fluid -->

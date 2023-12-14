@@ -36,10 +36,10 @@ function categories_delete($id){
  * @return array mảng loại truy vấn được
  * @throws PDOException lỗi truy vấn
  */
-function categories_select_all(){
-    $sql = "SELECT * FROM product_categories ORDER BY id  DESC";
-    $listcategories = pdo_query($sql);
-    return $listcategories;
+function loai_select_all(){
+    $sql = "SELECT * FROM product_categories ORDER BY id  ASC";
+    $listloai = pdo_query($sql);
+    return $listloai;
 }
 /**
  * Truy vấn một loại theo mã

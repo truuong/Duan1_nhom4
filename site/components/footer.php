@@ -1,34 +1,34 @@
- <!--? Shop Method Start-->
- <div class="shop-method-area mb-5">
-        <div class="container">
-            <div class="method-wrapper">
-                <div class="row d-flex justify-content-between">
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-method mb-40">
-                            <i class="ti-package"></i>
-                            <h6>MIỄN PHÍ VẬN CHUYỂN</h6>
-                            <p>Giao hàng nhanh, đóng gói cẩn thận</p>
-                        </div>
+<!--? Shop Method Start-->
+<div class="shop-method-area mb-5">
+    <div class="container">
+        <div class="method-wrapper">
+            <div class="row d-flex justify-content-between">
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="single-method mb-40">
+                        <i class="ti-package"></i>
+                        <h6>MIỄN PHÍ VẬN CHUYỂN</h6>
+                        <p>Giao hàng nhanh, đóng gói cẩn thận</p>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-method mb-40">
-                            <i class="ti-thumb-up"></i>
-                            <h6>CHẤT LƯỢNG HÀNG ĐẦU</h6>
-                            <p>Nhà bán lẻ đồng hồ hàng đầu việt nam</p>
-                        </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="single-method mb-40">
+                        <i class="ti-thumb-up"></i>
+                        <h6>CHẤT LƯỢNG HÀNG ĐẦU</h6>
+                        <p>Nhà bán lẻ đồng hồ hàng đầu việt nam</p>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-method mb-40">
-                            <i class="ti-reload"></i>
-                            <h6>ĐỔI HÀNG 7 NGÀY</h6>
-                            <p>1 đổi 1 trong 7 ngày với sản phẩm lỗin</p>
-                        </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="single-method mb-40">
+                        <i class="ti-reload"></i>
+                        <h6>ĐỔI HÀNG 7 NGÀY</h6>
+                        <p>1 đổi 1 trong 7 ngày với sản phẩm lỗi</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Shop Method End-->
+</div>
+<!-- Shop Method End-->
 <footer>
     <!-- Footer Start-->
     <div class="footer-area footer-padding bg-dark">
@@ -68,9 +68,12 @@
                         <div class="footer-tittle">
                             <h4 class="title text-danger">TỔNG ĐÀI HỖ TRỢ (MIỄN PHÍ GỌI)</h4>
                             <ul>
-                            <li><i class="ti-mobile text-danger"></i>&nbsp<a href="#">Gọi mua: 1800.6975 (8:00 - 21:00)</a></li>
-                            <li><i class="ti-headphone text-danger"></i>&nbsp<a href="#">CSKH: 1800.6173 (8:00 - 21:00)</a></li>
-                            <li><i class="ti-email text-danger"></i>&nbsp<a href="#">Email: cskh@timezone.com</a></li>
+                                <li><i class="ti-mobile text-danger"></i>&nbsp<a href="#">Gọi mua: 1800.6975 (8:00 -
+                                        21:00)</a></li>
+                                <li><i class="ti-headphone text-danger"></i>&nbsp<a href="#">CSKH: 1800.6173 (8:00 -
+                                        21:00)</a></li>
+                                <li><i class="ti-email text-danger"></i>&nbsp<a href="#">Email: cskh@timezone.com</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -107,11 +110,8 @@
                 <div class="col-xl-5 col-lg-4 col-md-5">
                     <div class="footer-copy-right f-right">
                         <!-- social -->
-                        <div class="footer-social">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-behance"></i></a>
-                            <a href="#"><i class="fas fa-globe"></i></a>
+                        <div class="copyright text-left">
+                            <p>Copyright &copy;2023 <a href="#">Nhóm 4 dự án 1</a>. All rights reserved.</p>
                         </div>
                     </div>
                 </div>
@@ -122,14 +122,79 @@
 </footer>
 <!--? Search model Begin -->
 <div class="search-model-box">
-    <div class="h-100 d-flex align-items-center justify-content-center">
+    <div class="h-100 bg-light d-flex align-items-center justify-content-center">
         <div class="search-close-btn">+</div>
-        <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Searching key.....">
+        <form action="index.php?page=noidungtimkiem" method="post" class="search-model-form">
+            <input type="text" name="noidung" id="noidung" placeholder="Nhập sản phẩm cần tìm...">
+            <button class=" btn-lg bg-danger" type="submit" name="timkiem"><i class="fa fa-search"></i></button>
         </form>
     </div>
 </div>
 <!-- Search model end -->
+<style>
+    .date {
+        font-size: 18px
+    }
+
+    .shadow-none {
+        box-shadow: none
+    }
+
+    .name {
+        color: #007bff
+    }
+
+    .cursor:hover {
+        color: blue
+    }
+
+    .cursor {
+        cursor: pointer
+    }
+
+    .textarea {
+        resize: none
+    }
+
+    .thumbnail img {
+        border: 2px solid transparent;
+        /* Mặc định viền trong suốt */
+        cursor: pointer;
+    }
+
+    .thumbnail img.clicked {
+        border: 2px solid #6c8e91;
+        /* Màu viền khi được click */
+    }
+
+    .img-container {
+        position: relative;
+    }
+
+    .image {
+        transition: .5s, ease;
+        backface-visibility: hidden;
+    }
+
+    .overplay {
+        transition: .5s, ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .img-container:hover .image {
+        opacity: 1;
+    }
+
+    .img-container:hover .overplay {
+        opacity: 1;
+    }
+</style>
+
+
 
 <!-- JS here -->
 

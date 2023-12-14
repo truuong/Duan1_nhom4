@@ -1,7 +1,7 @@
 <?php
 require_once 'pdo.php';
 
-function users_insert( $name, $phone, $password, $email, $username, $permission)
+function users_insert($name, $phone, $password, $email, $username, $permission)
 {
     $sql = "INSERT INTO users( name, phone, password, email, username, permission) VALUES ( '$name', '$phone', '$password', '$email', '$username', $permission)";
     pdo_execute($sql);
@@ -32,14 +32,18 @@ function users_select_by_id($id)
 {
     $sql = "SELECT * FROM users WHERE id ='$id'";
     $dm = pdo_query_one($sql);
+
     return $dm;
 }
-function users_check($id, $password)
-{
-    $sql = "SELECT * FROM users WHERE id ='$id ' AND password= '$password'";
-    $kh = pdo_query_one($sql);
+
+function checkuser($username,$password){
+    $sql = "SELECT * FROM users WHERE username= '$username' AND password= '$password' ";
+    $kh= pdo_query_one($sql);
     return $kh;
 }
+
+
+
 function users_select_by_email($id, $email)
 {
     $sql = "SELECT * FROM users WHERE id ='$id ' AND email='$email'";
