@@ -49,6 +49,12 @@ function checkusername($username){
 }
 
 
+function getUserEmail($username,$email)
+{
+    $sql = "SELECT * FROM users WHERE username= '$username' AND email= '$email' ";
+    $kh = pdo_query_one($sql);
+    return $kh;
+}
 
 function users_select_by_email($id, $email)
 {
@@ -69,10 +75,13 @@ function users_select_by_role($permission)
     return pdo_query($sql, $permission);
 }
 
-function users_change_password($id, $password, $name, $email)
+function users_change($id, $phone, $name, $email)
 {
+    $sql = "UPDATE users SET name='$name', email='$email', phone='$phone' WHERE id ='$id'";
 
-    $sql = "UPDATE users SET password='$password' , name='$name', hinh=hinh, email='$email' WHERE id ='$id '";
-
+    pdo_execute($sql);
+}
+function change_password($id, $password) {
+    $sql = "UPDATE users SET password='$password' WHERE id='$id'";
     pdo_execute($sql);
 }
