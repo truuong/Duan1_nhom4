@@ -61,6 +61,7 @@
                                     <input type="email" class="form-control" id="email" name="email"  placeholder="Nhập email...">
                                     <?php echo !empty($errors['email']['required']) ? '<div style="color:red;">' . $errors['email']['required'] . '</div>' : ''; ?>
                                     <?php echo !empty($errors['email']['invalid']) ? '<div style="color:red;">' . $errors['email']['invalid'] . '</div>' : ''; ?>
+                                    <?php echo !empty($errors['email']['repeat']) ? '<div style="color:red;">' . $errors['email']['repeat'] . '</div>' : ''; ?>
                                 </div>
 
                                 <div class="mb-3">

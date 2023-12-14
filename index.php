@@ -8,6 +8,9 @@ include "dao/global.php";
 include "dao/sanpham.php";
 include "dao/categories.php";
 
+// require 'public/mail/mailer.php';
+
+
 
 include "site/components/header.php";
 
@@ -73,6 +76,8 @@ if (isset($_GET["page"])) {
                     $errors['email']['required'] = 'Bắt buộc phải nhập địa chỉ email';
                 } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                     $errors['email']['invalid'] = 'Địa chỉ email không hợp lệ';
+                } elseif (is_array(getUserEmail($_POST['email']))) {
+                    $errors['email']['repeat'] = 'Địa chỉ email đã tồn tại';
                 } else {
                     $email = $_POST['email'];
                 }
@@ -106,30 +111,57 @@ if (isset($_GET["page"])) {
 
 
         case 'forgot':
-            $errors = [];
             if (isset($_POST['forgot'])) {
                 $email = $_POST['email'];
-                $username = $_POST['username'];
-                $kh = getUserEmail($username, $email);
-                $code = substr(rand(0, 999999), 0, 6);
-                $title = "Quên mật khẩu";
-                $conten = "Mã xác nhận của bạn là : <span style='color:green'>" . $code . "</span";
-                $mail->sendMail($title, $content, $email);
+                $kh = getUserEmail($email);
+                if (is_array($kh)) {
+                    $password = substr(md5(rand(0, 999999)), 0, 8);
+                    updatePassUserEmail($email, $password);
+                    $thongbao = "Mật khẩu mới đã được gửi về mail của bạn";
 
-                $_SESSION['mail'] = $email;
-                $_SESSION['code'] = $code;
 
-                header('Location: index.php?page=verification');
+                    require "PHPMailer/src/PHPMailer.php";
+                    require "PHPMailer/src/SMTP.php";
+                    require 'PHPMailer/src/Exception.php';
+                    $mail = new PHPMailer\PHPMailer\PHPMailer(true); //true:enables exceptions
+                    try {
+                        $mail->SMTPDebug = 0; //0,1,2: chế độ debug
+                        $mail->isSMTP();
+                        $mail->CharSet  = "utf-8";
+                        $mail->Host = 'smtp.gmail.com';  //SMTP servers
+                        $mail->SMTPAuth = true; // Enable authentication
+                        $mail->Username = 'cauchunamrom12344@gmail.com'; // SMTP username
+                        $mail->Password = 'phadadksvujlsuwf';   // SMTP password
+                        $mail->SMTPSecure = 'ssl';  // encryption TLS/SSL 
+                        $mail->Port = 465;  // port to connect to                
+                        $mail->setFrom('cauchunamrom12344@gmail.com', 'Admin');
+                        $mail->addAddress($email);
+                        $mail->isHTML(true);  // Set email format to HTML
+                        $mail->Subject = 'Thư gửi lại mật khẩu';
+                        $noidungthu = "<p>Bạn nhận được thư này, do bạn hoặc ai đó yêu cầu mật khẩu mới từ Website ...</p>
+                            <h4>Mật khẩu mới của bạn là :<span style='color:red'> {$password}</span </h4>
+                        ";
+                        $mail->Body = $noidungthu;
+                        $mail->smtpConnect(array(
+                            "ssl" => array(
+                                "verify_peer" => false,
+                                "verify_peer_name" => false,
+                                "allow_self_signed" => true
+                            )
+                        ));
+                        $mail->send();
+                        
+                    } catch (Exception $e) {
+                        echo 'Error: ', $mail->ErrorInfo;
+                    }
+                } else {
+                    $thongbao = "Email không tồn tại !";
+                }
             }
-
-
 
             include_once "site/pages/forgot.php";
             break;
 
-        case 'verification':
-            include_once "site/pages/verification.php";
-            break;
 
         case 'changePass':
             $errors = [];
@@ -168,7 +200,7 @@ if (isset($_GET["page"])) {
             break;
 
         case 'thongtinkh':
-            
+
             include_once "site/pages/thongtinkh.php";
             break;
 

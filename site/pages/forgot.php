@@ -33,32 +33,21 @@
                         <div class="login_part_form_iner">
                             <h3>Chào mừng quý khách trở lại ! <br></h3>
 
-                            <form class="row contact_form" action="index.php?page=forgot" method="post">
-                                <div class="col-md-12 form-group p_star">
+                            <form action="index.php?page=forgot" method="post">
+                                <div class="mb-3">
                                     <label for="email">Email:</label>
                                     <input type="email" class="form-control" id="email" name="email" placeholder="Nhập email">
-                                    <?php echo !empty($errors['email']['required']) ? '<div style="color:red;">' . $errors['email']['required'] . '</div>' : ''; ?>
-                                    <?php echo !empty($errors['email']['invalid']) ? '<div style="color:red;">' . $errors['email']['invalid'] . '</div>' : ''; ?>
-                                </div>
-                                <div class="col-md-12 form-group p_star">
-                                    <label for="username">Tên đăng nhập:</label>
-                                    <input type="text" class="form-control" id="username" name="username" placeholder="Nhập tên đăng nhập">
-                                    <?php echo !empty($errors['username']['required']) ? '<div style="color:red;">' . $errors['username']['required'] . '</div>' : ''; ?>
                                 </div>
                                 <div class="mb-3">
-                                <span style="color:red;">
-                                <?php 
-                                        if(isset($thongbao)&&($thongbao !="")){
+                                    <span style="color:red;">
+                                        <?php
+                                        if (isset($thongbao) && ($thongbao != "")) {
                                             echo $thongbao;
                                         }
-                                ?>
-                                </span>
+                                        ?>
+                                    </span>
                                 </div>
-                                <div class="col-md-12 form-group">
-                                    <button type="submit" id="forgot" name="forgot" class="btn_3">
-                                        Lấy lại mật khẩu
-                                    </button>
-                                </div>
+                                <button type="submit" name="forgot" class="btn_3" id="forgot">Lấy lại mật khẩu</button>
                             </form>
 
                         </div>
