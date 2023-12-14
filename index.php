@@ -62,7 +62,11 @@ $page=$_GET["page"];
             $noidung = $_POST['noidung'];
             $nd= products_select_keyword($noidung);
             include 'site/pages/noidungtimkiem.php';
-        }else{
+        }else if(isset($_POST['noidung']) && empty($_POST['noidung'])){
+            echo '<script>alert("Không để trống nội dung tìm kiếm");</script>';
+            include 'site/pages/home.php';
+        }
+        else{
             include 'site/pages/home.php';
         }
         break;
