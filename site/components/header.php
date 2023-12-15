@@ -45,7 +45,7 @@
                     <div class="menu-wrapper">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.php"><img src="public/assets/img/logo/logo.png" alt=""></a>
+                            <a href="index.php"><img src="public/assets/img/logo/2.png" alt="logo hearder"></a>
                         </div>
                         <!-- Main-menu -->
                         <div class="main-menu d-none d-lg-block">

@@ -39,7 +39,7 @@
                         <div class="single-footer-caption mb-30">
                             <!-- logo -->
                             <div class="footer-logo">
-                                <a href="index.php"><img src="public/assets/img/logo/logo2_footer.png" alt=""></a>
+                                <a href="index.php"><img src="public/assets/img/logo/2.png" alt="logo footer"></a>
                             </div>
                         </div>
                     </div>
