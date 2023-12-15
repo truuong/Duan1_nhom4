@@ -133,64 +133,64 @@
 <!-- Search model end -->
 <style>
     .date {
-        font-size: 18px
+        font-size: 18px !important
     }
 
     .shadow-none {
-        box-shadow: none
+        box-shadow: none !important
     }
 
     .name {
-        color: #007bff
+        color: #007bff !important
     }
 
     .cursor:hover {
-        color: blue
+        color: blue !important
     }
 
     .cursor {
-        cursor: pointer
+        cursor: pointer !important
     }
 
     .textarea {
-        resize: none
+        resize: none !important
     }
 
     .thumbnail img {
-        border: 2px solid transparent;
+        border: 2px solid transparent !important;
         /* Mặc định viền trong suốt */
-        cursor: pointer;
+        cursor: pointer !important;
     }
 
     .thumbnail img.clicked {
-        border: 2px solid #6c8e91;
+        border: 2px solid #6c8e91 !important;
         /* Màu viền khi được click */
     }
 
     .img-container {
-        position: relative;
+        position: relative !important;
     }
 
     .image {
-        transition: .5s, ease;
-        backface-visibility: hidden;
+        transition: .5s, ease !important;
+        backface-visibility: hidden !important;
     }
 
     .overplay {
-        transition: .5s, ease;
-        opacity: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        transition: .5s, ease !important;
+        opacity: 0 !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
     }
 
     .img-container:hover .image {
-        opacity: 1;
+        opacity: 1 !important;
     }
 
     .img-container:hover .overplay {
-        opacity: 1;
+        opacity: 1 !important;
     }
 </style>
 

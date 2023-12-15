@@ -34,15 +34,16 @@
                                     <td><img src="'.$image.'"
                                         width="70px"  height="70px" >
                                     </td>
-                                    <td>' .$price. ' VNĐ</td>
-                                    <td>' .$cate_id. '</td>
-                                    <td>' .$quantity. '</td>
+                                    <td>'.$price.' VNĐ</td>
+                                    <td>'.$cate_id.'</td>
+                                    <td>'.$quantity.'</td>
 
                                     <td>
-                                    <a href="' .$sua. '" class="btn btn-primary">Sửa</a>
+                                    <a href="'.$sua.'" class="btn btn-primary">Sửa</a>
                                     <a onclick="return confirm('."'".'  Bạn có muốn xoá san pham này không?'."'".');" href="'.$xoa.'" class="btn btn-danger">Xóa</a>
                                     </td>
                                 </tr>';
+                                
                         }
                         ?>
                     </tbody>

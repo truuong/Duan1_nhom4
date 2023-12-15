@@ -37,11 +37,11 @@
                                     
                                 <div class="col-md-12 form-group p_star">
                                     <label for="username">Tên đăng nhập:</label>
-                                    <input type="text" class="form-control" id="username" name="username"  placeholder="Nhập tên đăng nhập" required>
+                                    <input type="text" class="form-control" id="username" name="username"  placeholder="Nhập tên đăng nhập" >
                                 </div>
                                 <div class="col-md-12 form-group p_star">
                                     <label for="password">Mật khẩu:</label>
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu" required>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu" >
                                 </div>
                                 <div class="col-md-12 form-group">
                                 <span style="color:red;">
@@ -52,17 +52,19 @@
                             ?>
                             </span>
                                     <div class="creat_account d-flex align-items-center">
-                                    
-                                        <input type="checkbox" id="f-option" name="selector">
+<input type="checkbox" id="f-option" name="selector">
                                         <label for="f-option">Lưu mật khẩu</label>
                                     </div>
-                                    <button type="submit" value="submit" class="btn_3">
+                                    
+            
+                                    <button type="submit"   id="dangnhap" name="dangnhap" class="btn_3">
                                         Đăng nhập
                                     </button>
                                     
                                     <a class="lost_pass" href="#">Quên mật khẩu?</a>
                                 </div>
                             </form>
+                            
                         </div>
                     </div>
                 </div>

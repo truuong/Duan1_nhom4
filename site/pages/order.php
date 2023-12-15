@@ -1,9 +1,5 @@
 <?php 
 session_start();
-
-
-
-
 ?>
 
 
@@ -86,8 +82,8 @@ session_start();
                                    
 
 
-                                    $tt=(Int)$price * ((100 - $price_sale) / 100)*(Int)$quantity;
-                                    if($price_sale>0){
+                                    $tt=$sp[3] * ((100 - $sp[4]) / 100)*$sp[5];
+                                    if( $sp[4]>0){
                                         $tt = '
                                         <div class="card-title">
                                         '. number_format($tt).' đ
@@ -95,14 +91,14 @@ session_start();
                                     }
                                 echo '<tr>
                                     <td  class="col-sm-8 col-md-6">
-                                        <a class="thumbnail pull-left" href="#"> <img class="media-object" src="'.$image.'" style="width: 72px; height: 72px;"> </a>
+                                        <a class="thumbnail pull-left" href="#"> <img class="media-object" src="'.$sp[2].'" style="width: 72px; height: 72px;"> </a>
                                     </td>
                                     <td  class="col-sm-1 col-md-1">
-                                    <strong> <sup>'.$name.'</sup></strong>
+                                    <strong> <sup>'.$sp[1].'</sup></strong>
                                     </td>
                                     <td></td>
                                     <td class="col-sm-1 col-md-1" style="text-align: center;">
-                                        <input type="number" class="form-control qty cart_update" value="'.$quantity.'" min="1">
+                                        <input type="number" class="form-control qty cart_update" value="'.$sp[5].'" min="1">
                                     </td>
                                     
                                     <td class="col-sm-1 col-md-1 text-center">
@@ -165,12 +161,7 @@ session_start();
 
                             </tbody>
                             <td>
-                                <form action="" method="POST">
-
-                                    <button type="submit" class="btn btn-success" name="redirect" >
-                                        Thanh toán vnpay <span class="glyphicon glyphicon-play"></span>
-                                    </button>
-                                </form>
+                                
                             </td>
                         </table>
                     </div>
@@ -178,7 +169,13 @@ session_start();
             </div>
         </div>
     </form>
+    <form action="" method="POST">
 
+                                
+
+<input type="submit" name="redirect" value="Thanh toán">
+
+                            </form>
 
 
 

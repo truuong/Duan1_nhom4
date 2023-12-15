@@ -6,6 +6,7 @@ include "../dao/sanpham.php";
 include "../dao/categories.php";
 include "../dao/User.php";
 include "../dao/thongke.php";
+include "../dao/binhluan.php";
 
 $listthongke = product_by_category();
 $countsluongsp = count_products();
@@ -17,7 +18,7 @@ if (isset($_GET['action'])) {
 
     switch ($action) {
         case 'categories-list':
-            $listcategories = loai_select_all()();
+            $listcategories = loai_select_all();
             include "categories/listCategories.php";
             break;
 
@@ -66,7 +67,7 @@ if (isset($_GET['action'])) {
                 categories_delete($id);
                 $thongbao = "Xóa thành công !";
             }
-            $listcategories = loai_select_all()();
+            $listcategories = loai_select_all();
             include "categories/listCategories.php";
             break;
             // ---------------------------------------------
@@ -75,7 +76,7 @@ if (isset($_GET['action'])) {
                     $id = $_GET['id'];
                     $dm = products_select_by_id($id);
                 }
-                $listcategories = loai_select_all()();
+                $listcategories = loai_select_all();
                 
         include "products/editProduct.php";
         break;
@@ -90,13 +91,13 @@ if (isset($_GET['action'])) {
             $cate_id = $_POST['cate_id'];
             $intro = $_POST['intro'];
             $quantity = $_POST['quantity'];
-           
+            
             products_update($id, $name, $price, $price_sale, $image,$cate_id ,$intro,$quantity);
             
-            $thongbao = "uppdate thành công!"; 
+           
         }
         
-        $listcategories=loai_select_all()();
+        $listcategories=loai_select_all();
         $listsp = products_select_all();
         include "products/listProducts.php";
         break;
@@ -112,10 +113,8 @@ if (isset($_GET['action'])) {
                 $cate_id = $_POST['cate_id'];
                 $intro = $_POST['intro'];
                 $quantity = $_POST['quantity'];
-                $target_file =IMG_PATH.$image;
-                move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
                 products_insert($name, $price, $price_sale, $image, $cate_id, $intro,$quantity);
-                $thongbao = "Thêm thành công!"; 
+                
             }
             $listcategories=loai_select_all();
             include "products/addProduct.php";
@@ -131,7 +130,6 @@ if (isset($_GET['action'])) {
         case 'products-xoa':
             if (isset($_GET['id']) && ($_GET['id']) > 0) {
                 $id = $_GET['id'];
-                $image =IMG_PATH.get_image($id);
                 products_delete($id);
                 $thongbao = "Xóa thành công!";
             }

@@ -79,11 +79,11 @@
                                         <input type="hidden" name="price_sale" value="'.$price_sale.'">
                                         <input type="hidden" name="image" value="'.$image.'">
                                         <input type="hidden" name="quantity" value="'.$quantity.'">
-                                        <button class="btn" type="submit" name="addcart" onclick="return confirm('."'".'  Thêm Thành Công'."'".')">
+                                        <button class="btn bg-danger" type="submit" name="addcart" onclick="return confirm('."'".'  Thêm Thành Công'."'".')">
                                        
                                                 Thêm Vào Giỏ</button>
                                     </form>
-                                            <a href="'.$linksp.'" class="btn"><i class="ti-eye"></i> Xem Chi Tiết&emsp;</a>
+                                            <a href="'.$linksp.'" class="btn bg-danger">Xem Chi Tiết&emsp;</a>
         
                                         </div>
                                     </div>
@@ -156,11 +156,11 @@
                     <input type="hidden" name="price_sale" value="'.$price_sale.'">
                     <input type="hidden" name="image" value="'.$image.'">
                     <input type="hidden" name="quantity" value="'.$quantity.'">
-                    <button class="btn" type="submit" name="addcart" onclick="return confirm('."'".'  Thêm Thành Công'."'".')">
+                    <button class="btn bg-danger" type="submit" name="addcart" onclick="return confirm('."'".'  Thêm Thành Công'."'".')">
                    
                             Thêm Vào Giỏ</button>
                 </form>
-                        <a href="'.$linksp.'" class="btn"><i class="ti-eye"></i> Xem Chi Tiết&emsp;</a>
+                        <a href="'.$linksp.'" class="btn bg-danger">Xem Chi Tiết&emsp;</a>
 
                     </div>
                 </div>
@@ -230,7 +230,7 @@
                     <div class="watch-details mb-40">
                         <h2>Đa dạng phong cách</h2>
                         <p>Đa dạng mẫu mã để quý khách có thể lựa chọn theo phong cách yêu thích.</p>
-                        <a  href="index.php?page=shop" class="btn">Xem sản phẩm</a>
+                        <a  href="index.php?page=shop" class="btn  bg-danger">Xem sản phẩm</a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-10">
@@ -249,7 +249,7 @@
                     <div class="watch-details mb-40">
                         <h2>Bảo hành 5 năm</h2>
                         <p>Thủ tục nhanh gọn, thay pin miễn phí</p>
-                        <a href="index.php?page=shop" class="btn">Xem sản phẩm</a>
+                        <a href="index.php?page=shop" class="btn bg-danger">Xem sản phẩm</a>
                     </div>
                 </div>
             </div>

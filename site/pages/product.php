@@ -79,13 +79,13 @@
                                                 <input type="hidden" name="price_sale" value="'.$price_sale.'">
                                                 <input type="hidden" name="image" value="'.$image.'">
                                                 <input type="hidden" name="quantity" value="'.$quantity.'">
-                                                <button class="btn" type="submit" name="addcart" onclick="return confirm('."'".'  Thêm Thành Công'."'".')">
+                                                <button class="btn bg-danger" type="submit" name="addcart" onclick="return confirm('."'".'  Thêm Thành Công'."'".')">
                                                
                                                         Thêm Vào Giỏ</button>
                                             </form>
                                                 
                                            
-                                            <a href="'.$linksp.'" class="btn"><i class="ti-eye"></i> Xem Chi Tiết&emsp;</a>
+                                            <a href="'.$linksp.'" class="btn bg-danger">Xem Chi Tiết&emsp;</a>
         
                                         </div>
                                     </div>

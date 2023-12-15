@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 if(!isset($_SESSION["cart"])){
-    $_SESSION["cart"]=[];
+    $_SESSION["cart"]=array();
 }
 
 include 'dao/pdo.php';
@@ -15,6 +15,7 @@ include "global.php";
 include "dao/cart.php";
 include 'dao/order.php';
 include 'dao/emailer.php.php';
+//  
 include "site/components/header.php";
 $sptop8 =  products_select_top8();
 $dsdm = loai_select_all();
@@ -29,21 +30,21 @@ $page=$_GET["page"];
             break;
 // -------------------------------------------------------------------------------------------------------
 // -------------------------------------login-------------------------------------
-            case 'dangnhap':
-                if(isset($_POST["dangnhap"])){
-                    $username=$_POST["username"];
-                    $password=$_POST["password"];
-                    //xu li:kiem tra
-                    $kh=checkuser($username,$password);
-                    if(is_array($kh)){
-                        $_SESSION['ss_user']=$kh;
-                        header('Location: index.php');
-                    }else{
-                        $thongbao="Tài khoản không tồn tại hoặc sai thông tin đăng nhập!!";
-                    };
-                }
-                include "site/pages/login.php";
-                break;
+case 'dangnhap':
+    if(isset($_POST["dangnhap"])){
+        $username=$_POST["username"];
+        $password=$_POST["password"];
+        //xu li:kiem tra
+        $kh=checkuser($username,$password);
+        if(is_array($kh)){
+            $_SESSION['ss_user']=$kh;
+            header('Location: index.php');
+        }else{
+            $thongbao="Tài khoản không tồn tại hoặc sai thông tin đăng nhập !!!";
+        };
+    }
+    include "site/pages/login.php";
+    break;
                 case 'thongtinkh':
 
                     include_once "site/pages/thongtinkh.php";
@@ -117,19 +118,41 @@ $page=$_GET["page"];
 // ---------------------------------------------------------------Cart----------------------------
 // -------------------------------------------------------------------------------------------------------
         case 'addcart':
+
+            
             if(isset($_POST["addcart"])){
                 $id=$_POST["id"];
                 $name=$_POST["name"];
                 $price=$_POST["price"];
                 $price_sale=$_POST["price_sale"];
                 $image=$_POST["image"];
-                $quantity=$_POST["quantity"];
+                $quantity=1;
 
-                $sp=array("id"=>$id,"name"=>$name,"image"=>$image,"price"=>$price,"price_sale"=>$price_sale,"quantity"=>$quantity);
-                array_push($_SESSION["cart"],$sp);
+                $i=0;
+                $fg=0;
+                if(isset($_SESSION['cart'])&&(count($_SESSION['cart'])>0)){
+                    foreach($_SESSION['cart'] as $sp){
+                        if($sp[0]==$id){
+                            $quantity+=$sp[5];
+                            $fg=1;
+                            $_SESSION['cart'][$i][5]=$quantity;
+                            break;
+                        }
+                        $i++;
+                    }
+                }
+
+                if($fg==0){
+                    $sp=array($id,$name,$image,$price,$price_sale,$quantity);
+                    array_push($_SESSION["cart"],$sp);
+                }
+               
                 // echo var_dump($_SESSION["cart"]);
                 header('location: index.php?page=shop');
+            }else{
+                include 'site/pages/login.php';
             }
+            
             // include_once "site/pages/cart.php";
             break;
         case 'cart':
@@ -161,17 +184,19 @@ $page=$_GET["page"];
             include_once "site/pages/order.php";
             break;
 
-            case 'addorder':
-                if (isset($_POST['addorder'])){
-                    $customer_name=$_POST['customer_name'];
-                    $customer_phone=$_POST['customer_phone'];
-                    $shipping_address=$_POST['shipping_address'];
+            // case 'addorder':
+            //     if (isset($_POST['addorder'])){
+            //         $customer_name=$_POST['customer_name'];
+            //         $customer_phone=$_POST['customer_phone'];
+            //         $shipping_address=$_POST['shipping_address'];
     
-                }
-                // insert_order($customer_name, $customer_phone, $shipping_address);
-                $listsp=products_select_all();
-                include_once "site/pages/order.php";
-                break;
+            //     }
+            //     // insert_order($customer_name, $customer_phone, $shipping_address);
+            //     $listsp=products_select_all();
+            //     include_once "site/pages/order.php";
+            //     break;
+
+               
 // -------------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------
         case 'checkout':
@@ -218,20 +243,19 @@ $page=$_GET["page"];
        
 // ---------------------------------------------bình luận------------------------------------
 // ---------------------------------------------------------------------------------
-        case 'binhluan':
-            if(isset($_POST['binhluan']) && isset($_SESSION['ss_user'])){           
-                $user_id= $_SESSION['ss_user']['id'];
-                $id_product = $_POST['id'];
-                $content = $_POST['content'];
-                binh_luan_insert($content,$user_id, $id_product);
-                header("location:".$_SERVER["HTTP_REFERER"]);
-                include 'site/pages/product_detail.php';
-    
-        }else{
-            include 'site/pages/login.php';
-        }         
-            break;
-    
+case 'binhluan':
+    if(isset($_POST['binhluan']) && isset($_SESSION['ss_user'])){           
+        $user_id= $_SESSION['ss_user']['id'];
+        $id_product = $_POST['id'];
+        $content = $_POST['content'];
+        binh_luan_insert($content,$user_id, $id_product);
+        header("location:".$_SERVER["HTTP_REFERER"]);
+        include 'site/pages/product_detail.php';
+        
+}else{
+    include 'site/pages/login.php';
+}
+break;
            case 'dangxuat':
             session_unset();
             header('Location: index.php');

@@ -1,7 +1,4 @@
-<?php 
 
-
-?>
 <main>
         <!-- Hero Area Start-->
         <div class="slider-area ">
@@ -44,57 +41,66 @@
 
                     ?>
                                 <?php 
+
+                                
                                 foreach ($_SESSION["cart"] as $sp ){
                                     extract($sp);
                                    
-                                     $a = $price * ((100 - $price_sale) / 100);
-                                    if($price_sale>0){
+                                     $a = $sp[3] * ((100 - $sp[4]) / 100);
+                                    if($sp[4]>0){
                                         $b = '
                                         <div class="card-title">
                                         <s>
-                                        '.number_format($price).' đ
+                                        '.number_format($sp[3]).' đ
                                         </s>
-                                        <span class="bg-warning p-1 text-dark fw-bold rounded">-'.$price_sale.'%</span><br>
+                                        <span class="bg-warning p-1 text-dark fw-bold rounded">-'.$sp[4].'%</span><br>
                                         '. number_format($a).' đ
                                         </div>';
                                     }else{
                                         $b = '
                                         <div class="card-title">
-                                        '.number_format($price).' đ     
+                                        '.number_format($sp[3]).' đ     
                                         </div>';
                                     }
+                                    
 
                                     
-                                    $tt=(Int)$price * ((100 - $price_sale) / 100)*(Int)$quantity;
-                                    if($price_sale>0){
+                                    $tt=$sp[3] * ((100 - $sp[4]) / 100)*$sp[5];
+                                    if($sp[4]>0){
                                         $tt = '
                                         <div class="card-title">
                                         '. number_format($tt).' đ
                                         </div>';
                                     }
+                                   
+                                    
                                     echo '
                                     <tr>
                                     <td>
                                         <div class="media">
                                             <div class="d-flex">
-                                                <img src="'.$image.'" alt="product-img" />
+                                                <img src="'.$sp[2].'" alt="product-img" />
                                             </div>
                                             
                                         </div>
                                     </td>
                                     <td><div class="media-body">
-                                    <p>'.$name.'</p>
+                                    <p>'.$sp[1].'</p>
                                 </div></td>
 
                                     <td>
-                                        <h5>'.$b.' </h5>
+                                        <h5>'.$b. ' </h5>
                                     </td>
                                   
                                     
                                     <td class="col-sm-1 col-md-1" style="text-align: center">
-                                    <input type="number" class="form-control "name="quantity" value="'.$quantity.'"min="1" >
+                                        <div class="input-group quantity mx-auto" style="width:100px">
+                                        
+                                        <input type="number" class="form-control" name="quantity" value="'.$sp[5].'" min="1" onchange="updateQuantity(this.value, '.$id.')">
+                                        
+                                        </div>
+                                        
                                     </td>
-                                    
                                     <td>
                                         <h5>'.$tt.'</h5>
                                     </td>
@@ -164,3 +170,24 @@
         </section>
         <!--================End Cart Area =================-->
     </main>
+    <!-- <script >
+        var gh = JSON.page(sessionStorage.getItem('cart'));
+        for (let i=0; 1 <= gh.length; i++) {
+            total = parseInt(gh[i].price)*gh[i].quantity;
+        }
+    </script> -->
+<script>
+    function updateQuantity(vt ) {
+
+        let slmoi=0;
+
+        for(let i = 0; i < cart.length; i++){
+            if(i == vt){
+                slmoi= cart[i].qua +1;
+                cart[i].quantity+=1;
+                break;
+            }
+        }
+    }
+       
+</script>
