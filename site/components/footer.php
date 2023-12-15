@@ -72,7 +72,7 @@
                                         21:00)</a></li>
                                 <li><i class="ti-headphone text-danger"></i>&nbsp<a href="#">CSKH: 1800.6173 (8:00 -
                                         21:00)</a></li>
-                                <li><i class="ti-email text-danger"></i>&nbsp<a href="#">Email: cskh@timezone.com</a>
+                                <li><i class="ti-email text-danger"></i>&nbsp<a href="#">Email: cskh@ncshop.com</a>
                                 </li>
                             </ul>
                         </div>
